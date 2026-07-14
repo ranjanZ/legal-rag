@@ -354,7 +354,8 @@ def process_document_to_chunks(file_path: Path,
                                 metadata: Dict[str, Any] = None,
                                 strategy: str = None,
                                 corpus_type: str = None,
-                                extract_metadata: bool = True) -> List[Chunk]:
+                                load_existing_metadata: bool = True,
+                                extract_metadata: bool = False) -> List[Chunk]:
     """
     Process a document file and split it into chunks.
     
@@ -363,7 +364,8 @@ def process_document_to_chunks(file_path: Path,
         metadata: Additional metadata to include with each chunk
         strategy: Chunking strategy to use. If None, auto-detect from path.
         corpus_type: Type of corpus (contractnli, cuad, maud, etc.). If None, auto-detect from path.
-        extract_metadata: Whether to extract enhanced metadata using MetadataExtractor
+        load_existing_metadata: Whether to load pre-extracted metadata from data/metadata/
+        extract_metadata: Whether to extract metadata on-the-fly (deprecated, use load_existing_metadata)
     
     Returns:
         List of Chunk objects
@@ -394,21 +396,36 @@ def process_document_to_chunks(file_path: Path,
     # Generate document ID
     document_id = generate_document_id(file_path)
     
-    # Extract enhanced metadata if enabled
+    # Load pre-extracted metadata from data/metadata/ directory
     doc_metadata = None
-    if extract_metadata and METADATA_EXTRACTION_ENABLED:
+    if load_existing_metadata and METADATA_EXTRACTION_ENABLED:
+        try:
+            from metadata_extractor import load_metadata as load_meta
+            doc_metadata = load_meta(document_id, corpus_type)
+            if doc_metadata:
+                # Merge loaded metadata into base metadata
+                metadata.update(doc_metadata)
+                print(f"  ✓ Loaded metadata for {file_path.name}")
+            else:
+                print(f"  ⚠ No pre-extracted metadata found for {file_path.name}, using basic metadata only")
+        except Exception as e:
+            print(f"  ⚠ Error loading metadata for {file_path.name}: {e}")
+    
+    # Fallback: extract metadata on-the-fly if not loaded and extract_metadata is True
+    elif extract_metadata and METADATA_EXTRACTION_ENABLED:
         try:
             extractor = MetadataExtractor()
-            doc_metadata = extractor.extract_metadata(
+            doc_metadata_obj = extractor.extract_metadata(
                 text=text,
                 file_path=file_path,
                 corpus_type=corpus_type,
                 document_id=document_id
             )
             # Merge extracted metadata into base metadata
-            metadata.update(doc_metadata.to_filter_dict())
+            metadata.update(doc_metadata_obj.to_filter_dict())
+            print(f"  ✓ Extracted metadata on-the-fly for {file_path.name}")
         except Exception as e:
-            print(f"Warning: Metadata extraction failed for {file_path.name}: {e}")
+            print(f"  ⚠ Metadata extraction failed for {file_path.name}: {e}")
     
     # Add file info to metadata
     metadata['file_name'] = file_path.name
