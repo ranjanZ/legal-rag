@@ -343,7 +343,8 @@ def apply_preprocessing(text: str, corpus_type: str) -> str:
 
 def process_document_to_chunks(file_path: Path, 
                                 metadata: Dict[str, Any] = None,
-                                strategy: str = None) -> List[Chunk]:
+                                strategy: str = None,
+                                corpus_type: str = None) -> List[Chunk]:
     """
     Process a document file and split it into chunks.
     
@@ -351,6 +352,7 @@ def process_document_to_chunks(file_path: Path,
         file_path: Path to the document file
         metadata: Additional metadata to include with each chunk
         strategy: Chunking strategy to use. If None, auto-detect from path.
+        corpus_type: Type of corpus (contractnli, cuad, maud, etc.). If None, auto-detect from path.
     
     Returns:
         List of Chunk objects
@@ -358,8 +360,9 @@ def process_document_to_chunks(file_path: Path,
     if metadata is None:
         metadata = {}
     
-    # Determine corpus type and get appropriate config
-    corpus_type = get_corpus_type_from_path(file_path)
+    # Determine corpus type from parameter or from file path
+    if corpus_type is None:
+        corpus_type = get_corpus_type_from_path(file_path)
     corpus_config = PREPROCESSING_PIPELINE.get(corpus_type, PREPROCESSING_PIPELINE['cuad'])
     
     # Use provided strategy or auto-detect from corpus config
@@ -424,19 +427,26 @@ def process_document_to_chunks(file_path: Path,
 
 
 def save_chunks_to_file(chunks: List[Chunk], output_dir: Path, 
-                        document_id: str, format: str = 'json') -> Path:
+                        document_id: str, relative_path: Path = None, format: str = 'json') -> Path:
     """
-    Save chunks to a file in the specified directory.
+    Save chunks to a file in the specified directory, preserving folder structure.
     
     Args:
         chunks: List of Chunk objects to save
         output_dir: Directory to save chunks
         document_id: Document ID for naming the file
+        relative_path: Relative path from corpus root to preserve folder structure
         format: Output format ('json' or 'jsonl')
     
     Returns:
         Path to the saved file
     """
+    # Preserve folder structure if relative_path is provided
+    if relative_path is not None:
+        # Get the parent directory of the relative path
+        sub_folder = relative_path.parent
+        output_dir = output_dir / sub_folder
+    
     output_dir.mkdir(parents=True, exist_ok=True)
     
     if format == 'json':
@@ -464,7 +474,7 @@ def save_chunks_to_file(chunks: List[Chunk], output_dir: Path,
 def process_directory_and_save(input_dir: Path, output_dir: Path = None,
                                 format: str = 'json') -> Dict[str, Path]:
     """
-    Process all documents in a directory and save chunks.
+    Process all documents in a directory and save chunks, preserving folder structure.
     
     Args:
         input_dir: Directory containing documents
@@ -488,7 +498,15 @@ def process_directory_and_save(input_dir: Path, output_dir: Path = None,
                 print(f"Processing: {file_path}")
                 chunks = process_document_to_chunks(file_path)
                 document_id = generate_document_id(file_path)
-                output_file = save_chunks_to_file(chunks, output_dir, document_id, format)
+                
+                # Calculate relative path from input_dir to preserve structure
+                relative_path = file_path.relative_to(input_dir)
+                
+                output_file = save_chunks_to_file(
+                    chunks, output_dir, document_id, 
+                    relative_path=relative_path, 
+                    format=format
+                )
                 results[file_path] = output_file
                 print(f"  → Saved {len(chunks)} chunks to: {output_file}")
     
