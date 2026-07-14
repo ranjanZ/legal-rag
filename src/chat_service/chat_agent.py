@@ -36,7 +36,8 @@ logging.basicConfig(
 logger = logging.getLogger("src.chat_service.chat_agent")
 
 # --- Configuration ---
-LLM_MODEL = "llama3.2"
+#LLM_MODEL = "llama3.2"
+LLM_MODEL="qwen2.5:1.5b-instruct-q4_K_M"
 TOP_K = 3
 
 # Simple Greeting Keywords
