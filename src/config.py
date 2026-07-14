@@ -22,7 +22,7 @@ else:
     DEFAULT_CORPUS_DIR = CORPUS_DIR
 
 # Raw data directory (for processed documents)
-RAW_DATA_DIR = DATA_DIR / "raw"
+RAW_DATA_DIR = DATA_DIR / "chunks"
 
 # Index directory
 INDEX_DIR = DATA_DIR / "index"

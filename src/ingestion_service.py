@@ -67,7 +67,7 @@ class IngestionService:
     
     def _generate_embeddings(self, texts: List[str]) -> np.ndarray:
         """
-        Generate embeddings for a list of texts.
+        Generate dense embeddings for a list of texts.
         
         Args:
             texts: List of text strings to embed
@@ -82,6 +82,30 @@ class IngestionService:
             convert_to_numpy=True
         )
         return embeddings
+    
+    def _build_bm25_index(self, texts: List[str]):
+        """
+        Build a sparse BM25 index from a list of texts.
+        
+        Args:
+            texts: List of text strings to index
+            
+        Returns:
+            BM25Okapi index object or None if rank-bm25 is not installed
+        """
+        print("\nBuilding BM25 index...")
+        try:
+            from rank_bm25 import BM25Okapi
+            
+            # Tokenize texts for BM25
+            tokenized_docs = [text.lower().split() for text in texts]
+            bm25_index = BM25Okapi(tokenized_docs)
+            
+            print(f"BM25 index built with {len(tokenized_docs)} documents")
+            return bm25_index
+        except ImportError:
+            print("Warning: rank-bm25 not installed. BM25 index will not be created.")
+            return None
     
     def discover_documents(self, corpus_type: str) -> List[Path]:
         """
@@ -99,7 +123,7 @@ class IngestionService:
             return []
         
         documents = []
-        for ext in ['*.txt', '*.pdf', '*.docx']:
+        for ext in ['*.txt', '*.pdf', '*.docx','*.jsonl', '*.json']:
             documents.extend(corpus_path.rglob(ext))  # Use rglob for recursive search
         
         print(f"Found {len(documents)} documents in {corpus_type}")
@@ -176,27 +200,16 @@ class IngestionService:
         
         print(f"\nTotal chunks generated: {len(all_chunks)}")
         
-        # Extract texts for embedding
+        # Extract texts for indexing
         texts = [chunk.text for chunk in all_chunks]
         
-        # Generate embeddings
+        # 1. Generate Dense Embeddings (Semantic Index)
         print("\nGenerating embeddings...")
         embeddings = self._generate_embeddings(texts)
         print(f"Embeddings shape: {embeddings.shape}")
         
-        # Build BM25 index
-        print("\nBuilding BM25 index...")
-        try:
-            from rank_bm25 import BM25Okapi
-            
-            # Tokenize texts for BM25
-            tokenized_docs = [text.lower().split() for text in texts]
-            bm25_index = BM25Okapi(tokenized_docs)
-            
-            print(f"BM25 index built with {len(tokenized_docs)} documents")
-        except ImportError:
-            print("Warning: rank-bm25 not installed. BM25 index will not be created.")
-            bm25_index = None
+        # 2. Build Sparse BM25 Index (Lexical Index)
+        bm25_index = self._build_bm25_index(texts)
         
         # Prepare chunk metadata for serialization with relative paths
         chunks_data = []

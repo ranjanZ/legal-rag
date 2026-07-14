@@ -6,8 +6,8 @@ __pycache__/
 *.pyd
 
 # Data files that might be large
-data/chunks/
-data/index/
+#data/chunks/
+#data/index/
 
 # Dependencies
 .venv/

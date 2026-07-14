@@ -1,0 +1,37 @@
+{
+  "corpus_type": "maud",
+  "created_at": "2026-07-14T17:45:30.559211",
+  "num_documents": 3,
+  "num_chunks": 2316,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "index_directory": "data/index/maud",
+  "documents": [
+    {
+      "file_name": "347ac6f2cff261a8_chunks.json",
+      "document_id": "c39d3d9ddeceec00",
+      "num_chunks": 721,
+      "file_size": 620449,
+      "relative_path": "347ac6f2cff261a8_chunks.json"
+    },
+    {
+      "file_name": "a60e4737f0066a48_chunks.json",
+      "document_id": "cbf1586d73a8820d",
+      "num_chunks": 876,
+      "file_size": 758963,
+      "relative_path": "a60e4737f0066a48_chunks.json"
+    },
+    {
+      "file_name": "ee3cf573a9d1f4fc_chunks.json",
+      "document_id": "4e5567aed8f20b05",
+      "num_chunks": 719,
+      "file_size": 625319,
+      "relative_path": "ee3cf573a9d1f4fc_chunks.json"
+    }
+  ],
+  "config": {
+    "chunk_strategy": "hierarchical",
+    "chunk_size": 1024,
+    "overlap": 100
+  }
+}

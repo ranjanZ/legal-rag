@@ -11,7 +11,7 @@ import numpy as np
 
 from sentence_transformers import SentenceTransformer
 
-from config import (
+from src.config import (
     INDEX_DIR, EMBEDDING_MODEL_NAME, 
     TOP_K_RESULTS, SCORE_THRESHOLD,
     EMBEDDING_DIMENSION
@@ -108,10 +108,11 @@ class RetrievalService:
         return index_data
     
     def _tokenize(self, text: str) -> List[str]:
-        """Simple tokenization matching the ingestion service."""
-        import re
-        tokens = re.findall(r'\b\w+\b', text.lower())
-        return tokens
+        """
+        Simple tokenization matching the ingestion service.
+        MUST match the ingestion logic (text.lower().split()) for BM25 to work correctly.
+        """
+        return text.lower().split()
     
     def bm25_search(self, index_data: Dict[str, Any], 
                    query: str, top_k: int = TOP_K_RESULTS) -> List[Tuple[int, float]]:
@@ -241,19 +242,23 @@ class RetrievalService:
                 )
                 
                 if combined_score >= score_threshold:
-                    chunk_metadata = index_data['chunk_metadata'][idx]
-                    chunk_text = index_data['chunks'][idx]
+                    # Extract chunk data correctly based on ingestion structure
+                    chunk_data = index_data['chunks'][idx]
+                    chunk_text = chunk_data['text']
+                    chunk_metadata = chunk_data.get('metadata', {})
                     
                     result = {
-                        'chunk_id': chunk_metadata['chunk_id'],
-                        'document_id': chunk_metadata['document_id'],
-                        'file_name': chunk_metadata['file_name'],
+                        'chunk_id': chunk_data.get('chunk_id'),
+                        'document_id': chunk_data.get('document_id'),
+                        'file_name': chunk_data.get('relative_path', chunk_metadata.get('file_name', 'Unknown')),
                         'category': category,
                         'text': chunk_text,
                         'score': combined_score,
                         'bm25_score': normalized_bm25,
                         'semantic_score': semantic_score,
-                        'metadata': chunk_metadata
+                        'metadata': chunk_metadata,
+                        'section_number': chunk_data.get('section_number'),
+                        'clause_type': chunk_data.get('clause_type')
                     }
                     all_results.append(result)
         
@@ -302,17 +307,20 @@ class RetrievalService:
             bm25_results = self.bm25_search(index_data, query, top_k=top_k)
             
             for idx, score in bm25_results:
-                chunk_metadata = index_data['chunk_metadata'][idx]
-                chunk_text = index_data['chunks'][idx]
+                # Extract chunk data correctly based on ingestion structure
+                chunk_data = index_data['chunks'][idx]
+                chunk_text = chunk_data['text']
+                chunk_metadata = chunk_data.get('metadata', {})
                 
                 result = {
-                    'chunk_id': chunk_metadata['chunk_id'],
-                    'document_id': chunk_metadata['document_id'],
-                    'file_name': chunk_metadata['file_name'],
+                    'chunk_id': chunk_data.get('chunk_id'),
+                    'document_id': chunk_data.get('document_id'),
+                    'file_name': chunk_data.get('relative_path', chunk_metadata.get('file_name', 'Unknown')),
                     'category': category,
                     'text': chunk_text,
                     'score': score,
-                    'search_type': 'bm25'
+                    'search_type': 'bm25',
+                    'metadata': chunk_metadata
                 }
                 all_results.append(result)
         
@@ -334,17 +342,20 @@ class RetrievalService:
             semantic_results = self.semantic_search(index_data, query, top_k=top_k)
             
             for idx, score in semantic_results:
-                chunk_metadata = index_data['chunk_metadata'][idx]
-                chunk_text = index_data['chunks'][idx]
+                # Extract chunk data correctly based on ingestion structure
+                chunk_data = index_data['chunks'][idx]
+                chunk_text = chunk_data['text']
+                chunk_metadata = chunk_data.get('metadata', {})
                 
                 result = {
-                    'chunk_id': chunk_metadata['chunk_id'],
-                    'document_id': chunk_metadata['document_id'],
-                    'file_name': chunk_metadata['file_name'],
+                    'chunk_id': chunk_data.get('chunk_id'),
+                    'document_id': chunk_data.get('document_id'),
+                    'file_name': chunk_data.get('relative_path', chunk_metadata.get('file_name', 'Unknown')),
                     'category': category,
                     'text': chunk_text,
                     'score': score,
-                    'search_type': 'semantic'
+                    'search_type': 'semantic',
+                    'metadata': chunk_metadata
                 }
                 all_results.append(result)
         
