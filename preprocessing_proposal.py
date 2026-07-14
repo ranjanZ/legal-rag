@@ -296,31 +296,29 @@ class LegalDocumentPreprocessor:
         return None
 
 
-def main():
+if __name__ == '__main__':
     """Example usage of the preprocessor."""
     preprocessor = LegalDocumentPreprocessor()
     
     # Example: Process a CUAD document
-    cuad_file = Path('/workspace/data/corpus/cuad/SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt')
+    cuad_file = Path('data/corpus/cuad/SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt')
     if cuad_file.exists():
         metadata = preprocessor.process_document(cuad_file)
         print("=== CUAD Document Metadata ===")
         print(json.dumps(metadata, indent=2, default=str))
     
     # Example: Process a ContractNLI document
-    nli_file = Path('/workspace/data/corpus/contractnli/01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt')
+    nli_file = Path('data/corpus/contractnli/01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt')
     if nli_file.exists():
         metadata = preprocessor.process_document(nli_file)
         print("\n=== ContractNLI Document Metadata ===")
         print(json.dumps(metadata, indent=2, default=str))
     
     # Example: Process a MAUD document
-    maud_file = Path('/workspace/data/corpus/maud/Acacia_Communications_Cisco_Systems.txt')
+    maud_file = Path('data/corpus/maud/Acacia_Communications_Cisco_Systems.txt')
     if maud_file.exists():
         metadata = preprocessor.process_document(maud_file)
         print("\n=== MAUD Document Metadata ===")
         print(json.dumps(metadata, indent=2, default=str))
 
 
-if __name__ == '__main__':
-    main()
