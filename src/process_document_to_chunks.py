@@ -1,6 +1,7 @@
 """
 Document chunking module.
 Implements chunking strategy with document_id and chunk_id tracking.
+Enhanced with metadata extraction for advanced filtering.
 """
 
 import hashlib
@@ -15,6 +16,14 @@ from config import (
     CHUNKING_STRATEGIES, PREPROCESSING_PIPELINE,
     DATA_DIR
 )
+
+# Import metadata extractor
+try:
+    from metadata_extractor import MetadataExtractor, ContractMetadata
+    METADATA_EXTRACTION_ENABLED = True
+except ImportError:
+    METADATA_EXTRACTION_ENABLED = False
+    print("Warning: metadata_extractor not found. Running without enhanced metadata.")
 
 
 @dataclass
@@ -344,7 +353,8 @@ def apply_preprocessing(text: str, corpus_type: str) -> str:
 def process_document_to_chunks(file_path: Path, 
                                 metadata: Dict[str, Any] = None,
                                 strategy: str = None,
-                                corpus_type: str = None) -> List[Chunk]:
+                                corpus_type: str = None,
+                                extract_metadata: bool = True) -> List[Chunk]:
     """
     Process a document file and split it into chunks.
     
@@ -353,6 +363,7 @@ def process_document_to_chunks(file_path: Path,
         metadata: Additional metadata to include with each chunk
         strategy: Chunking strategy to use. If None, auto-detect from path.
         corpus_type: Type of corpus (contractnli, cuad, maud, etc.). If None, auto-detect from path.
+        extract_metadata: Whether to extract enhanced metadata using MetadataExtractor
     
     Returns:
         List of Chunk objects
@@ -383,6 +394,22 @@ def process_document_to_chunks(file_path: Path,
     # Generate document ID
     document_id = generate_document_id(file_path)
     
+    # Extract enhanced metadata if enabled
+    doc_metadata = None
+    if extract_metadata and METADATA_EXTRACTION_ENABLED:
+        try:
+            extractor = MetadataExtractor()
+            doc_metadata = extractor.extract_metadata(
+                text=text,
+                file_path=file_path,
+                corpus_type=corpus_type,
+                document_id=document_id
+            )
+            # Merge extracted metadata into base metadata
+            metadata.update(doc_metadata.to_filter_dict())
+        except Exception as e:
+            print(f"Warning: Metadata extraction failed for {file_path.name}: {e}")
+    
     # Add file info to metadata
     metadata['file_name'] = file_path.name
     metadata['file_path'] = str(file_path)
@@ -411,6 +438,20 @@ def process_document_to_chunks(file_path: Path,
     chunks = []
     for idx, raw_chunk in enumerate(raw_chunks):
         chunk_id = generate_chunk_id(document_id, idx)
+        
+        # Detect clause type for this specific chunk if not already set
+        chunk_clause_type = raw_chunk.get('clause_type')
+        if not chunk_clause_type and METADATA_EXTRACTION_ENABLED:
+            # Try to detect clause type from chunk text
+            chunk_text_lower = raw_chunk['text'].lower()
+            for clause_type, patterns in extractor.clause_compiled.items():
+                for pattern in patterns:
+                    if pattern.search(chunk_text_lower):
+                        chunk_clause_type = clause_type
+                        break
+                if chunk_clause_type:
+                    break
+        
         chunk = Chunk(
             document_id=document_id,
             chunk_id=chunk_id,
@@ -419,7 +460,7 @@ def process_document_to_chunks(file_path: Path,
             end_pos=raw_chunk['end_pos'],
             metadata=metadata.copy(),
             section_number=raw_chunk.get('section_number'),
-            clause_type=raw_chunk.get('clause_type')
+            clause_type=chunk_clause_type
         )
         chunks.append(chunk)
     

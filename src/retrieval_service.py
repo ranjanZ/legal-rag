@@ -184,9 +184,10 @@ class RetrievalService:
                      top_k: int = TOP_K_RESULTS,
                      bm25_weight: float = 0.5,
                      semantic_weight: float = 0.5,
-                     score_threshold: float = SCORE_THRESHOLD) -> List[Dict[str, Any]]:
+                     score_threshold: float = SCORE_THRESHOLD,
+                     filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
         """
-        Perform hybrid search combining BM25 and semantic similarity.
+        Perform hybrid search combining BM25 and semantic similarity with optional metadata filtering.
         
         Args:
             query: Search query
@@ -195,6 +196,8 @@ class RetrievalService:
             bm25_weight: Weight for BM25 scores (0-1)
             semantic_weight: Weight for semantic scores (0-1)
             score_threshold: Minimum combined score threshold
+            filters: Dictionary of metadata filters to apply before search
+                    Example: {"party_1": "Tesla", "clause_type": "non_compete", "corpus_type": "cuad"}
         
         Returns:
             List of result dictionaries with chunk info and scores
@@ -215,6 +218,11 @@ class RetrievalService:
                 print(f"Warning: {e}")
                 continue
             
+            # Apply metadata filters BEFORE search to narrow candidate set
+            filtered_chunk_indices = self._apply_metadata_filters(
+                index_data, filters
+            ) if filters else None
+            
             # Get BM25 results
             bm25_results = self.bm25_search(index_data, query, top_k=top_k * 2)
             
@@ -227,6 +235,10 @@ class RetrievalService:
             
             # Get all unique indices
             all_indices = set(bm25_dict.keys()) | set(semantic_dict.keys())
+            
+            # Filter indices if metadata filters were applied
+            if filtered_chunk_indices is not None:
+                all_indices = all_indices & filtered_chunk_indices
             
             for idx in all_indices:
                 bm25_score = bm25_dict.get(idx, 0.0)
@@ -258,13 +270,99 @@ class RetrievalService:
                         'semantic_score': semantic_score,
                         'metadata': chunk_metadata,
                         'section_number': chunk_data.get('section_number'),
-                        'clause_type': chunk_data.get('clause_type')
+                        'clause_type': chunk_data.get('clause_type'),
+                        'matched_filters': self._check_filter_match(chunk_metadata, filters) if filters else {}
                     }
                     all_results.append(result)
         
         # Sort by combined score and return top-k
         all_results.sort(key=lambda x: x['score'], reverse=True)
         return all_results[:top_k]
+    
+    def _apply_metadata_filters(self, index_data: Dict[str, Any], 
+                               filters: Dict[str, Any]) -> set:
+        """
+        Apply metadata filters to get matching chunk indices.
+        
+        Args:
+            index_data: Loaded index data
+            filters: Dictionary of metadata filters
+        
+        Returns:
+            Set of chunk indices that match all filters
+        """
+        if not filters:
+            return None
+        
+        chunks = index_data['chunks']
+        matching_indices = set()
+        
+        for idx, chunk_data in enumerate(chunks):
+            metadata = chunk_data.get('metadata', {})
+            
+            if self._check_filter_match(metadata, filters):
+                matching_indices.add(idx)
+        
+        return matching_indices
+    
+    def _check_filter_match(self, metadata: Dict[str, Any], 
+                           filters: Dict[str, Any]) -> Dict[str, bool]:
+        """
+        Check if metadata matches the provided filters.
+        
+        Args:
+            metadata: Chunk metadata
+            filters: Dictionary of filters
+        
+        Returns:
+            Dictionary showing which filters matched
+        """
+        if not filters:
+            return {}
+        
+        matched = {}
+        for key, value in filters.items():
+            metadata_value = metadata.get(key)
+            
+            # Handle different comparison types
+            if isinstance(value, list):
+                # List match - check if metadata value is in the list
+                matched[key] = metadata_value in value if metadata_value else False
+            elif isinstance(value, str) and '*' in value:
+                # Wildcard match
+                import fnmatch
+                matched[key] = fnmatch.fnmatch(str(metadata_value), value) if metadata_value else False
+            else:
+                # Exact match (case-insensitive for strings)
+                if isinstance(metadata_value, str) and isinstance(value, str):
+                    matched[key] = metadata_value.lower() == value.lower()
+                else:
+                    matched[key] = metadata_value == value
+        
+        return matched
+    
+    def search_with_filters(self, query: str,
+                           filters: Dict[str, Any] = None,
+                           categories: List[str] = None,
+                           top_k: int = TOP_K_RESULTS) -> List[Dict[str, Any]]:
+        """
+        Convenience method for filtered search.
+        
+        Args:
+            query: Search query
+            filters: Metadata filters (e.g., {"party_1": "Tesla", "clause_type": "non_compete"})
+            categories: Categories to search
+            top_k: Number of results
+        
+        Returns:
+            List of matching results
+        """
+        return self.hybrid_search(
+            query=query,
+            categories=categories,
+            top_k=top_k,
+            filters=filters
+        )
     
     def search(self, query: str, 
               categories: List[str] = None,
