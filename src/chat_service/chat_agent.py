@@ -5,11 +5,22 @@ import logging
 import uuid
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
+from pathlib import Path
 
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from sentence_transformers import SentenceTransformer
-import numpy as np
+
+# --- Suppress Noisy Third-Party Logs ---
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("huggingface_hub").setLevel(logging.WARNING)
+logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
+logging.getLogger("transformers").setLevel(logging.WARNING)
+
+# --- Import Production Retrieval Service ---
+# NOTE: Adjust this import path to match your exact project structure 
+# (e.g., from src.retrieval.retrieval_service import RetrievalService)
+from src.retrieval_service import RetrievalService
 
 # Setup Logging
 LOG_DIR = os.path.join(os.path.dirname(__file__))
@@ -26,7 +37,6 @@ logger = logging.getLogger("src.chat_service.chat_agent")
 
 # --- Configuration ---
 LLM_MODEL = "llama3.2"
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 TOP_K = 3
 
 # Simple Greeting Keywords
@@ -58,94 +68,15 @@ class ConversationMemory:
         self.history = []
 
 
-class ChunkRetriever:
-    """Handles embedding and retrieval from the corpus."""
-    def __init__(self, data_dir: str = None):
-        self.data_dir = data_dir or os.path.join(os.path.dirname(__file__), "..", "..", "data", "corpus_lite")
-        self.embedder = None
-        self.chunks = []
-        self.embeddings = None
-        self._load_data()
-
-    def _load_data(self):
-        """Load chunks from JSON/Text files in the data directory."""
-        logger.info(f"Loading data from {self.data_dir}")
-        import json
-        import glob
-        
-        all_chunks = []
-        if os.path.exists(self.data_dir):
-            for file_path in glob.glob(os.path.join(self.data_dir, "**", "*.json"), recursive=True):
-                try:
-                    with open(file_path, 'r') as f:
-                        data = json.load(f)
-                        if isinstance(data, list):
-                            for item in data:
-                                chunk_text = item.get('text') or item.get('content') or str(item)
-                                if chunk_text:
-                                    all_chunks.append({
-                                        "id": item.get('id', str(uuid.uuid4())[:8]),
-                                        "text": chunk_text,
-                                        "source": os.path.basename(file_path),
-                                        "category": os.path.basename(os.path.dirname(file_path))
-                                    })
-                        elif isinstance(data, dict):
-                             pass 
-                except Exception as e:
-                    logger.warning(f"Error loading {file_path}: {e}")
-        
-        if not all_chunks:
-            logger.warning("No chunks loaded from data directory. Retrieval will return empty results.")
-        
-        self.chunks = all_chunks
-        logger.info(f"Loaded {len(self.chunks)} chunks.")
-
-    def _ensure_embeddings(self):
-        if self.embeddings is not None or not self.chunks:
-            return
-        
-        logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
-        self.embedder = SentenceTransformer(EMBEDDING_MODEL)
-        
-        texts = [c['text'] for c in self.chunks]
-        logger.info("Computing embeddings...")
-        self.embeddings = self.embedder.encode(texts, convert_to_numpy=True, show_progress_bar=False)
-        logger.info("Embeddings computed.")
-
-    def retrieve(self, query: str, k: int = TOP_K) -> List[Dict[str, Any]]:
-        """Retrieve top-k chunks for a query."""
-        if not self.chunks:
-            return []
-        
-        self._ensure_embeddings()
-        
-        start_time = time.time()
-        query_embedding = self.embedder.encode([query], convert_to_numpy=True)
-        
-        sims = np.dot(self.embeddings, query_embedding.T).flatten()
-        top_indices = np.argsort(sims)[::-1][:k]
-        
-        results = []
-        for idx in top_indices:
-            if sims[idx] > 0.1:
-                chunk = self.chunks[idx].copy()
-                chunk['score'] = float(sims[idx])
-                if 'chunk_id' not in chunk:
-                    chunk['chunk_id'] = chunk.get('id', f"chunk_{idx}")
-                results.append(chunk)
-        
-        elapsed = time.time() - start_time
-        logger.info(f"Retrieval completed in {elapsed:.2f}s, found {len(results)} chunks")
-        return results
-
-
 class ChatAgent:
-    """Main Chat Agent - Simplified for speed."""
+    """Main Chat Agent - Orchestrates Memory, RetrievalService, and LLM."""
     
-    def __init__(self, session_id: str = None, data_dir: str = None):
+    def __init__(self, session_id: str = None, index_dir: str = None):
         self.session_id = session_id or str(uuid.uuid4())
         self.memory = ConversationMemory(self.session_id)
-        self.retriever = ChunkRetriever(data_dir)
+        
+        # Initialize the Production RetrievalService
+        self.retriever = RetrievalService(index_dir=Path(index_dir) if index_dir else None)
         
         self.llm = ChatOllama(
             model=LLM_MODEL,
@@ -153,7 +84,7 @@ class ChatAgent:
             num_ctx=2048,
             num_thread=4
         )
-        logger.info(f"ChatAgent initialized with model {LLM_MODEL}")
+        logger.info(f"ChatAgent initialized with model {LLM_MODEL} and Production RetrievalService")
 
     def _is_greeting(self, query: str) -> bool:
         q_lower = query.lower().strip()
@@ -189,10 +120,11 @@ class ChatAgent:
         
         context_text = ""
         for i, chunk in enumerate(chunks):
+            # Adapted to keys returned by RetrievalService
             chunk_id = chunk.get('chunk_id', f"C{i+1}")
-            source = chunk.get('source', 'Unknown')
+            file_name = chunk.get('file_name', chunk.get('category', 'Unknown'))
             text = chunk['text']
-            context_text += f"[{chunk_id}] Source: {source}\nContent: {text}\n\n"
+            context_text += f"[{chunk_id}] Source: {file_name}\nContent: {text}\n\n"
 
         system_prompt = """You are a helpful legal assistant. 
 Answer the user's question based ONLY on the provided context below.
@@ -239,9 +171,9 @@ Answer:"""
         # 2. Standard Flow: Retrieve -> Synthesize
         logger.info(f"Processing query: {query}")
         
-        # Step A: Retrieval
+        # Step A: Retrieval via Production RetrievalService (Hybrid Search)
         t_start = time.time()
-        chunks = self.retriever.retrieve(query)
+        chunks = self.retriever.search(query=query, top_k=TOP_K, search_type='hybrid')
         t_retrieve = time.time() - t_start
         steps_log.append({"step": "retrieval", "time": t_retrieve, "chunks_found": len(chunks)})
         
@@ -250,7 +182,7 @@ Answer:"""
         # Step B: Synthesis
         t_start = time.time()
         if not chunks:
-            answer = "I couldn't find specific information in the documents to answer that. Could you rephrase or provide more details?"
+            answer = "I couldn't find specific information in the indexed documents to answer that. Could you rephrase or provide more details?"
             steps_log.append({"step": "no_retrieval", "time": 0.0, "details": "No relevant chunks found"})
         else:
             answer = self._synthesize_answer(query, chunks, chat_context)
@@ -264,12 +196,13 @@ Answer:"""
         self.memory.add_message("human", query)
         self.memory.add_message("ai", answer)
         
-        # Format Sources for UI
+        # Format Sources for UI (adapting to RetrievalService output keys)
         sources = []
         for c in chunks:
             sources.append({
                 "chunk_id": c.get('chunk_id'),
-                "source": c.get('source'),
+                "document_id": c.get('document_id'),
+                "source": c.get('file_name', c.get('category', 'Unknown')),
                 "score": c.get('score'),
                 "text": c.get('text')
             })
@@ -280,3 +213,70 @@ Answer:"""
             "steps": steps_log,
             "total_time": total_time
         }
+
+
+if __name__ == "__main__":
+    import json
+
+    print("="*70)
+    print("Starting Chat Service Tests (Using Production RetrievalService)")
+    print("="*70)
+
+    try:
+        # 1. Test Production RetrievalService directly
+        print("\n" + "="*70)
+        print("TEST 1: Production RetrievalService")
+        print("="*70)
+        
+        retriever = RetrievalService()
+        available_indexes = retriever.discover_indexes()
+        print(f"Discovered indexes: {available_indexes}")
+        
+        if not available_indexes:
+            print("\n[WARNING] No indexes found!")
+            print("Please ensure you have run the ingestion pipeline first.")
+            print("The chat agent will correctly fall back to 'no information found'.\n")
+        else:
+            query = "What is the formula for calculating the per Transaction Inquiry advertising fee?"
+            print(f"\nQuery: '{query}'")
+            results = retriever.search(query=query, top_k=3, search_type='hybrid')
+            print(f"Retrieved {len(results)} chunks:")
+            for r in results:
+                print(f"  - [{r.get('chunk_id')}] Score: {r.get('score'):.4f} | File: {r.get('file_name')}")
+                print(f"    Text: {r.get('text')[:100]}...")
+
+        # 2. Test ChatAgent
+        print("\n" + "="*70)
+        print("TEST 2: ChatAgent")
+        print("="*70)
+        agent = ChatAgent(session_id="test_session_prod_123")
+        
+        # Test A: Greeting (should be instant, no LLM call)
+        print("\n--- Test A: Greeting (Fast-path) ---")
+        resp_greeting = agent.chat("Hello there!")
+        print(f"Answer: {resp_greeting['answer']}")
+        print(f"Total Time: {resp_greeting['total_time']:.4f}s")
+
+        # Test B: Standard Query (Retrieval + LLM Synthesis)
+        print("\n--- Test B: Standard Query (Retrieval + Synthesis) ---")
+        print("NOTE: This requires Ollama to be running with 'llama3.2' pulled.")
+        test_query = "What are the termination rules?"
+        resp_query = agent.chat(test_query)
+        print(f"Answer: {resp_query['answer']}")
+        print(f"Total Time: {resp_query['total_time']:.4f}s")
+        print(f"Steps: {json.dumps(resp_query['steps'], indent=2)}")
+        print(f"Sources cited: {len(resp_query['sources'])}")
+
+        # Test C: Follow-up Query (Tests Conversation Memory)
+        print("\n--- Test C: Follow-up Query (Conversation Memory) ---")
+        resp_followup = agent.chat("And what about confidentiality?")
+        print(f"Answer: {resp_followup['answer']}")
+        print(f"Total Time: {resp_followup['total_time']:.4f}s")
+
+    except Exception as e:
+        logger.error(f"Test failed with error: {e}", exc_info=True)
+        print(f"\n[Error] Test failed: {e}")
+    
+    print("\n" + "="*70)
+    print("Tests Completed")
+    print("="*70)
