@@ -281,7 +281,7 @@ def main():
     parser.add_argument(
         "--corpus-dir",
         type=Path,
-        default=None,
+        default="data/chunks",
         help="Custom corpus directory"
     )
     parser.add_argument(
