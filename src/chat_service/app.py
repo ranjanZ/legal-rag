@@ -5,11 +5,15 @@ Provides an interactive chat interface for querying legal documents.
 
 import streamlit as st
 import json
+import logging
 from typing import List, Dict, Any
 from pathlib import Path
 
 # Import the chat agent
 from src.chat_service.chat_agent import ChatAgent
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 
 # Page configuration
@@ -180,6 +184,7 @@ def main():
         - 🧠 Multi-step reasoning for complex queries
         - 📝 Automatic citation of sources
         - 💾 Conversation memory
+        - ⏱️ Performance timing metrics
         
         **Model:** Llama 3.2 via Ollama
         """)
@@ -192,7 +197,7 @@ def main():
     if 'messages' not in st.session_state:
         st.session_state.messages = []
     
-    # Display chat messages
+    # Display chat messages from history
     for i, message in enumerate(st.session_state.messages):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
@@ -216,6 +221,107 @@ def main():
                 # Show execution plan for complex queries
                 if metadata.get('plan'):
                     render_plan(metadata['plan'])
+    
+    # Create tabs for the most recent response details
+    if st.session_state.messages and len(st.session_state.messages) >= 2:
+        # Find the last assistant message with timing info
+        last_assistant_msg = None
+        for msg in reversed(st.session_state.messages):
+            if msg["role"] == "assistant" and msg.get("metadata", {}).get("timing"):
+                last_assistant_msg = msg
+                break
+        
+        if last_assistant_msg:
+            st.divider()
+            tabs = st.tabs(["💬 Chat", "⏱️ Performance Timing", "📊 Step Details"])
+            
+            timing_data = last_assistant_msg["metadata"].get("timing", {})
+            step_results = last_assistant_msg["metadata"].get("step_results", [])
+            
+            with tabs[1]:
+                st.markdown("### ⏱️ Query Performance Timing")
+                
+                if timing_data:
+                    # Show total time
+                    total_time = timing_data.get('total', 0)
+                    st.metric("Total Query Time", f"{total_time:.2f}s")
+                    
+                    # Check if it's a simple or complex query
+                    if 'steps' in timing_data and timing_data['steps']:
+                        # Complex query with multiple steps
+                        st.markdown("#### Step-by-Step Timing")
+                        
+                        for step_timing in timing_data['steps']:
+                            step_num = step_timing.get('step', 0) + 1
+                            step_type = step_timing.get('type', 'unknown')
+                            duration = step_timing.get('duration', 0)
+                            
+                            col1, col2 = st.columns([3, 1])
+                            with col1:
+                                st.markdown(f"**Step {step_num}: {step_type.capitalize()}**")
+                            with col2:
+                                st.metric("", f"{duration:.2f}s", delta=f"{(duration/total_time*100):.1f}% of total")
+                        
+                        st.markdown("#### Final Processing")
+                        synthesis_time = timing_data.get('synthesis', 0)
+                        refinement_time = timing_data.get('refinement', 0)
+                        
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.metric("Answer Synthesis", f"{synthesis_time:.2f}s")
+                        with col2:
+                            st.metric("Answer Refinement", f"{refinement_time:.2f}s")
+                        
+                        # Visual timeline
+                        st.markdown("#### 📈 Timeline Visualization")
+                        steps_with_final = timing_data['steps'] + [
+                            {'type': 'synthesis', 'duration': synthesis_time},
+                            {'type': 'refinement', 'duration': refinement_time}
+                        ]
+                        
+                        timeline_data = []
+                        for s in steps_with_final:
+                            timeline_data.append({
+                                'step': s.get('type', 'unknown').capitalize(),
+                                'duration': f"{s.get('duration', 0):.2f}s"
+                            })
+                        st.table(timeline_data)
+                        
+                    else:
+                        # Simple query timing
+                        st.markdown("#### Processing Breakdown")
+                        retrieval_time = timing_data.get('retrieval', 0)
+                        synthesis_time = timing_data.get('synthesis', 0)
+                        refinement_time = timing_data.get('refinement', 0)
+                        
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.metric("Retrieval", f"{retrieval_time:.2f}s")
+                        with col2:
+                            st.metric("Synthesis", f"{synthesis_time:.2f}s")
+                        with col3:
+                            st.metric("Refinement", f"{refinement_time:.2f}s")
+                else:
+                    st.info("No timing data available for this query.")
+            
+            with tabs[2]:
+                st.markdown("### 📊 Step Execution Details")
+                
+                if step_results:
+                    for step in step_results:
+                        step_type = step.get('type', 'unknown')
+                        step_num = step.get('step', 0) + 1
+                        
+                        with st.expander(f"Step {step_num}: {step_type.capitalize()}", expanded=False):
+                            st.json(step)
+                elif timing_data and 'steps' not in timing_data:
+                    st.info("This was a simple query without multiple steps.")
+                else:
+                    st.info("No step results available.")
+            
+            with tabs[0]:
+                # Chat tab is just a placeholder since chat is already displayed above
+                st.info("💬 Scroll up to see the conversation history")
     
     # Chat input
     if prompt := st.chat_input("Ask a question about legal documents..."):
@@ -245,7 +351,8 @@ def main():
                         'citations': response.get('citations', []),
                         'chunks_used': response.get('chunks_used', []),
                         'plan': response.get('plan'),
-                        'complexity': response.get('complexity', 'simple')
+                        'complexity': response.get('complexity', 'simple'),
+                        'timing': response.get('timing', {})
                     }
                     
                     # Add assistant message with metadata
@@ -266,6 +373,7 @@ def main():
                         st.metric("Query Complexity", complexity.capitalize())
                     
                 except Exception as e:
+                    logger.error(f"Error processing query: {str(e)}", exc_info=True)
                     st.error(f"❌ Error processing your query: {str(e)}")
                     st.session_state.messages.append({
                         "role": "assistant",

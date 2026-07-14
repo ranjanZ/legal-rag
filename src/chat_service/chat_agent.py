@@ -5,9 +5,11 @@ Orchestrates queries using retrieval service and Ollama-based LLM.
 
 import json
 import uuid
+import logging
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 from pathlib import Path
+import time
 
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
@@ -15,6 +17,17 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 from src.retrieval_service import RetrievalService
 from src.config import INDEX_DIR
+
+# Configure logging for chat service
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('/workspace/src/chat_service/chat_service.log')
+    ]
+)
+logger = logging.getLogger(__name__)
 
 
 # Initialize LLM as specified
@@ -328,8 +341,18 @@ Retrieved Context: {context}"""),
         
         formatted = []
         for chunk in chunks:
+            # Ensure chunk_id exists, generate one if missing
+            chunk_id = chunk.get('chunk_id')
+            if chunk_id is None:
+                # Try to generate from available fields
+                file_name = chunk.get('file_name', 'unknown')
+                text_preview = chunk.get('text', '')[:50].replace(' ', '_')
+                chunk_id = f"{file_name}_{hash(text_preview) % 10000}"
+                chunk['chunk_id'] = chunk_id
+                logger.warning(f"Generated missing chunk_id: {chunk_id}")
+            
             chunk_info = (
-                f"[Chunk ID: {chunk.get('chunk_id', 'N/A')}]\n"
+                f"[Chunk ID: {chunk_id}]\n"
                 f"File: {chunk.get('file_name', 'Unknown')}\n"
                 f"Category: {chunk.get('category', 'Unknown')}\n"
                 f"Score: {chunk.get('score', 0):.4f}\n"
@@ -397,30 +420,52 @@ Retrieved Context: {context}"""),
         Returns:
             Response dictionary with answer and metadata
         """
+        logger.info(f"Executing simple query: {query[:100]}...")
+        start_time = time.time()
+        
         # Discover available categories
         categories = self.retrieval_service.discover_indexes()
+        logger.info(f"Searching categories: {categories}")
         
         # Perform retrieval
+        retrieval_start = time.time()
         chunks = self.retrieval_service.hybrid_search(
             query=query,
             categories=categories,
             top_k=5
         )
+        retrieval_time = time.time() - retrieval_start
+        logger.info(f"Retrieval completed in {retrieval_time:.2f}s, found {len(chunks)} chunks")
         
         # Get conversation context
         chat_context = self.memory.get_context_summary()
         
         # Synthesize answer
+        synthesis_start = time.time()
         answer = self._synthesize_answer(query, chunks, chat_context)
+        synthesis_time = time.time() - synthesis_start
+        logger.info(f"Answer synthesis completed in {synthesis_time:.2f}s")
         
         # Refine answer
+        refinement_start = time.time()
         refined_answer = self._refine_answer(query, answer, chunks)
+        refinement_time = time.time() - refinement_start
+        logger.info(f"Answer refinement completed in {refinement_time:.2f}s")
+        
+        total_time = time.time() - start_time
+        logger.info(f"Simple query completed in {total_time:.2f}s")
         
         return {
             'answer': refined_answer,
             'chunks_used': chunks,
             'plan': None,
-            'complexity': 'simple'
+            'complexity': 'simple',
+            'timing': {
+                'retrieval': retrieval_time,
+                'synthesis': synthesis_time,
+                'refinement': refinement_time,
+                'total': total_time
+            }
         }
     
     def _execute_complex_query(self, query: str, 
@@ -435,6 +480,9 @@ Retrieved Context: {context}"""),
         Returns:
             Response dictionary with answer and metadata
         """
+        logger.info(f"Executing complex query: {query[:100]}...")
+        start_time = time.time()
+        
         # Create execution plan
         self.current_plan = QueryPlan(query)
         
@@ -448,13 +496,17 @@ Retrieved Context: {context}"""),
             )
         
         self.current_plan.status = "in_progress"
+        logger.info(f"Created plan with {len(self.current_plan.steps)} steps")
         
         # Execute each step
         all_chunks = []
         step_results = []
+        step_timings = []
         
         for step in self.current_plan.steps:
             step_index = step['index']
+            step_start = time.time()
+            logger.info(f"Executing step {step_index + 1}: {step['type']} - {step['description'][:50]}...")
             
             try:
                 if step['type'] == 'retrieve':
@@ -462,11 +514,15 @@ Retrieved Context: {context}"""),
                     chunks = self._execute_retrieval_step(step)
                     self.current_plan.mark_step_complete(step_index, chunks)
                     all_chunks.extend(chunks)
+                    step_duration = time.time() - step_start
                     step_results.append({
                         'step': step_index,
                         'type': 'retrieval',
-                        'chunks_count': len(chunks)
+                        'chunks_count': len(chunks),
+                        'duration': step_duration
                     })
+                    step_timings.append({'step': step_index, 'type': 'retrieval', 'duration': step_duration})
+                    logger.info(f"Step {step_index + 1} completed in {step_duration:.2f}s, retrieved {len(chunks)} chunks")
                     
                 elif step['type'] == 'reason':
                     # Perform intermediate reasoning
@@ -481,11 +537,15 @@ Provide your reasoning:"""
                     
                     reasoning_response = llm.invoke(reasoning_prompt)
                     self.current_plan.mark_step_complete(step_index, reasoning_response.content)
+                    step_duration = time.time() - step_start
                     step_results.append({
                         'step': step_index,
                         'type': 'reasoning',
-                        'summary': reasoning_response.content[:200]
+                        'summary': reasoning_response.content[:200],
+                        'duration': step_duration
                     })
+                    step_timings.append({'step': step_index, 'type': 'reasoning', 'duration': step_duration})
+                    logger.info(f"Step {step_index + 1} reasoning completed in {step_duration:.2f}s")
                     
                 elif step['type'] == 'synthesize':
                     # Intermediate synthesis
@@ -502,11 +562,15 @@ Provide synthesized insights:"""
                     
                     synthesis_response = llm.invoke(synthesis_prompt)
                     self.current_plan.mark_step_complete(step_index, synthesis_response.content)
+                    step_duration = time.time() - step_start
                     step_results.append({
                         'step': step_index,
                         'type': 'synthesis',
-                        'summary': synthesis_response.content[:200]
+                        'summary': synthesis_response.content[:200],
+                        'duration': step_duration
                     })
+                    step_timings.append({'step': step_index, 'type': 'synthesis', 'duration': step_duration})
+                    logger.info(f"Step {step_index + 1} synthesis completed in {step_duration:.2f}s")
                     
                 elif step['type'] == 'verify':
                     # Verification step
@@ -523,14 +587,20 @@ Identify any gaps or inconsistencies:"""
                     
                     verify_response = llm.invoke(verify_prompt)
                     self.current_plan.mark_step_complete(step_index, verify_response.content)
+                    step_duration = time.time() - step_start
                     step_results.append({
                         'step': step_index,
                         'type': 'verification',
-                        'findings': verify_response.content[:200]
+                        'findings': verify_response.content[:200],
+                        'duration': step_duration
                     })
+                    step_timings.append({'step': step_index, 'type': 'verification', 'duration': step_duration})
+                    logger.info(f"Step {step_index + 1} verification completed in {step_duration:.2f}s")
                     
             except Exception as e:
+                logger.error(f"Step {step_index} failed: {str(e)}")
                 self.current_plan.mark_step_failed(step_index, str(e))
+                step_duration = time.time() - step_start
                 step_results.append({
                     'step': step_index,
                     'type': 'error',
@@ -541,17 +611,31 @@ Identify any gaps or inconsistencies:"""
         
         # Final synthesis using all gathered information
         chat_context = self.memory.get_context_summary()
+        synthesis_start = time.time()
         final_answer = self._synthesize_answer(query, all_chunks, chat_context)
+        synthesis_time = time.time() - synthesis_start
         
         # Final refinement
+        refinement_start = time.time()
         refined_answer = self._refine_answer(query, final_answer, all_chunks)
+        refinement_time = time.time() - refinement_start
+        
+        total_time = time.time() - start_time
+        logger.info(f"Complex query completed in {total_time:.2f}s (synthesis: {synthesis_time:.2f}s, refinement: {refinement_time:.2f}s)")
         
         return {
             'answer': refined_answer,
             'chunks_used': all_chunks,
             'plan': self.current_plan.to_dict(),
             'step_results': step_results,
-            'complexity': analysis.get('complexity', 'complex')
+            'step_timings': step_timings,
+            'complexity': analysis.get('complexity', 'complex'),
+            'timing': {
+                'steps': step_timings,
+                'synthesis': synthesis_time,
+                'refinement': refinement_time,
+                'total': total_time
+            }
         }
     
     def chat(self, query: str) -> Dict[str, Any]:
@@ -597,9 +681,12 @@ Identify any gaps or inconsistencies:"""
             ],
             'plan': response_data.get('plan'),
             'step_results': response_data.get('step_results'),
+            'timing': response_data.get('timing', {}),
             'complexity': response_data.get('complexity', 'simple'),
             'session_id': self.memory.session_id
         }
+        
+        logger.info(f"Query completed. Complexity: {response['complexity']}, Chunks: {len(response['chunks_used'])}, Citations: {len(response['citations'])}")
         
         return response
     
