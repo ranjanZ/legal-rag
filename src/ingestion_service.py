@@ -1,24 +1,28 @@
 """
-Ingestion service for RAG system.
-Handles document processing, chunking, and indexing with BM25 and embeddings.
+Ingestion Service for RAG System.
+Handles document processing, chunking, embedding, and indexing.
+Creates separate indexes per corpus category (contractnli, cuad, maud, cuad_pdf_samples).
+Uses BM25 for sparse retrieval and sentence-transformers for dense embeddings.
 """
 
 import json
 import pickle
-from pathlib import Path
-from typing import List, Dict, Any
-from tqdm import tqdm
 import numpy as np
-
-from sentence_transformers import SentenceTransformer
-from rank_bm25 import BM25Okapi
+from pathlib import Path
+from typing import List, Dict, Any, Optional
+from datetime import datetime
+import sys
 
 from config import (
-    DEFAULT_CORPUS_DIR, RAW_DATA_DIR, INDEX_DIR,
-    EMBEDDING_MODEL_NAME, DOCUMENT_EXTENSIONS,
-    BM25_K1, BM25_B, ensure_directories
+    DEFAULT_CORPUS_DIR, INDEX_DIR, RAW_DATA_DIR,
+    EMBEDDING_MODEL_NAME, EMBEDDING_DIMENSION,
+    CORPUS_CATEGORIES, ensure_directories,
+    get_preprocessing_config
 )
-from process_document_to_chunks import process_document_to_chunks, Chunk
+from process_document_to_chunks import (
+    process_document_to_chunks, Chunk, 
+    generate_document_id, generate_chunk_id
+)
 
 
 class IngestionService:
@@ -27,233 +31,298 @@ class IngestionService:
     Creates both BM25 and semantic indexes for each corpus category.
     """
     
-    def __init__(self, corpus_dir: Path = None):
+    def __init__(self, corpus_dir: Path = None, index_dir: Path = None):
         """
         Initialize the ingestion service.
         
         Args:
-            corpus_dir: Path to the corpus directory. Defaults to configured default.
+            corpus_dir: Base directory containing corpus folders
+            index_dir: Directory to save indexes
         """
         self.corpus_dir = corpus_dir or DEFAULT_CORPUS_DIR
+        self.index_dir = index_dir or INDEX_DIR
         self.embedding_model = None
+        
+        # Ensure directories exist
         ensure_directories()
-        
-    def load_embedding_model(self):
-        """Load the sentence transformer embedding model."""
+        self.index_dir.mkdir(parents=True, exist_ok=True)
+    
+    def _load_embedding_model(self):
+        """Lazy load the embedding model."""
         if self.embedding_model is None:
-            print(f"Loading embedding model: {EMBEDDING_MODEL_NAME}")
-            self.embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
-        return self.embedding_model
+            try:
+                from sentence_transformers import SentenceTransformer
+                print(f"Loading embedding model: {EMBEDDING_MODEL_NAME}")
+                self.embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+            except ImportError:
+                print("Error: sentence-transformers not installed. Run: pip install sentence-transformers")
+                raise
     
-    def discover_documents(self) -> Dict[str, List[Path]]:
+    def _generate_embeddings(self, texts: List[str]) -> np.ndarray:
         """
-        Discover all documents in the corpus directory.
-        Groups documents by their immediate parent folder (corpus category).
-        
-        Returns:
-            Dictionary mapping corpus category names to lists of document paths
-        """
-        documents_by_category = {}
-        
-        if not self.corpus_dir.exists():
-            raise FileNotFoundError(f"Corpus directory not found: {self.corpus_dir}")
-        
-        # Iterate through subdirectories (categories)
-        for category_dir in self.corpus_dir.iterdir():
-            if category_dir.is_dir():
-                category_name = category_dir.name
-                docs = []
-                
-                # Find all supported document files
-                for ext in DOCUMENT_EXTENSIONS:
-                    docs.extend(category_dir.glob(f"*{ext}"))
-                
-                if docs:
-                    documents_by_category[category_name] = sorted(docs)
-                    print(f"Found {len(docs)} documents in category '{category_name}'")
-        
-        return documents_by_category
-    
-    def process_category(self, category_name: str, 
-                        documents: List[Path]) -> Dict[str, Any]:
-        """
-        Process all documents in a category and create indexes.
+        Generate embeddings for a list of texts.
         
         Args:
-            category_name: Name of the corpus category
-            documents: List of document paths
-        
+            texts: List of text strings to embed
+            
         Returns:
-            Dictionary containing index data
+            Numpy array of embeddings
         """
-        all_chunks = []
-        chunk_metadata = []
+        self._load_embedding_model()
+        embeddings = self.embedding_model.encode(
+            texts,
+            show_progress_bar=True,
+            convert_to_numpy=True
+        )
+        return embeddings
+    
+    def discover_documents(self, corpus_type: str) -> List[Path]:
+        """
+        Discover all documents in a corpus type folder.
         
-        print(f"\nProcessing category: {category_name}")
-        print(f"Documents to process: {len(documents)}")
+        Args:
+            corpus_type: Type of corpus (contractnli, cuad, maud, cuad_pdf_samples)
+            
+        Returns:
+            List of document file paths
+        """
+        corpus_path = self.corpus_dir / corpus_type
+        if not corpus_path.exists():
+            print(f"Warning: Corpus directory not found: {corpus_path}")
+            return []
         
-        # Process each document
-        for doc_path in tqdm(documents, desc="Processing documents"):
+        documents = []
+        for ext in ['*.txt', '*.pdf', '*.docx']:
+            documents.extend(corpus_path.glob(ext))
+        
+        print(f"Found {len(documents)} documents in {corpus_type}")
+        return sorted(documents)
+    
+    def process_corpus(self, corpus_type: str, force_rebuild: bool = False) -> Dict[str, Any]:
+        """
+        Process all documents in a corpus type and create indexes.
+        
+        Args:
+            corpus_type: Type of corpus to process
+            force_rebuild: If True, rebuild index even if it exists
+            
+        Returns:
+            Dictionary with processing statistics
+        """
+        print(f"\n{'='*80}")
+        print(f"Processing corpus: {corpus_type}")
+        print(f"{'='*80}")
+        
+        # Check if index already exists
+        index_path = self.index_dir / corpus_type
+        summary_file = index_path / "summary.json"
+        
+        if index_path.exists() and summary_file.exists() and not force_rebuild:
+            print(f"Index already exists for {corpus_type}. Use --force to rebuild.")
+            with open(summary_file, 'r') as f:
+                return json.load(f)
+        
+        # Create index directory
+        index_path.mkdir(parents=True, exist_ok=True)
+        
+        # Discover documents
+        documents = self.discover_documents(corpus_type)
+        if not documents:
+            print(f"No documents found for {corpus_type}")
+            return {"error": "No documents found"}
+        
+        # Process documents into chunks
+        all_chunks: List[Chunk] = []
+        doc_stats = []
+        
+        for doc_path in documents:
+            print(f"\nProcessing: {doc_path.name}")
             try:
                 chunks = process_document_to_chunks(
                     doc_path,
-                    metadata={'category': category_name}
+                    corpus_type=corpus_type
                 )
                 all_chunks.extend(chunks)
                 
-                # Store metadata for each chunk
-                for chunk in chunks:
-                    chunk_metadata.append({
-                        'chunk_id': chunk.chunk_id,
-                        'document_id': chunk.document_id,
-                        'file_name': chunk.metadata.get('file_name', ''),
-                        'file_path': chunk.metadata.get('file_path', ''),
-                        'category': category_name,
-                        'start_pos': chunk.start_pos,
-                        'end_pos': chunk.end_pos
-                    })
+                doc_stats.append({
+                    "file_name": doc_path.name,
+                    "document_id": generate_document_id(doc_path),
+                    "num_chunks": len(chunks),
+                    "file_size": doc_path.stat().st_size
+                })
+                
+                print(f"  → Generated {len(chunks)} chunks")
             except Exception as e:
-                print(f"Error processing {doc_path}: {e}")
-                continue
-        
-        print(f"Total chunks created: {len(all_chunks)}")
+                print(f"  → Error processing {doc_path.name}: {str(e)}")
         
         if not all_chunks:
-            return None
+            print(f"No chunks generated for {corpus_type}")
+            return {"error": "No chunks generated"}
         
-        # Create BM25 index
-        print("Creating BM25 index...")
-        tokenized_docs = [self._tokenize(chunk.text) for chunk in all_chunks]
-        bm25_index = BM25Okapi(tokenized_docs, k1=BM25_K1, b=BM25_B)
+        print(f"\nTotal chunks generated: {len(all_chunks)}")
         
-        # Create semantic embeddings
-        print("Creating semantic embeddings...")
-        self.load_embedding_model()
-        chunk_texts = [chunk.text for chunk in all_chunks]
-        embeddings = self.embedding_model.encode(
-            chunk_texts, 
-            show_progress_bar=True,
-            batch_size=32
-        )
+        # Extract texts for embedding
+        texts = [chunk.text for chunk in all_chunks]
         
-        # Prepare index data
+        # Generate embeddings
+        print("\nGenerating embeddings...")
+        embeddings = self._generate_embeddings(texts)
+        print(f"Embeddings shape: {embeddings.shape}")
+        
+        # Build BM25 index
+        print("\nBuilding BM25 index...")
+        try:
+            from rank_bm25 import BM25Okapi
+            
+            # Tokenize texts for BM25
+            tokenized_docs = [text.lower().split() for text in texts]
+            bm25_index = BM25Okapi(tokenized_docs)
+            
+            print(f"BM25 index built with {len(tokenized_docs)} documents")
+        except ImportError:
+            print("Warning: rank-bm25 not installed. BM25 index will not be created.")
+            bm25_index = None
+        
+        # Prepare chunk metadata for serialization
+        chunks_data = []
+        for chunk in all_chunks:
+            chunks_data.append({
+                "document_id": chunk.document_id,
+                "chunk_id": chunk.chunk_id,
+                "text": chunk.text,
+                "start_pos": chunk.start_pos,
+                "end_pos": chunk.end_pos,
+                "metadata": chunk.metadata,
+                "section_number": chunk.section_number,
+                "clause_type": chunk.clause_type
+            })
+        
+        # Save indexes
+        print(f"\nSaving indexes to {index_path}...")
+        
+        # Save embeddings
+        embeddings_file = index_path / "embeddings.npy"
+        np.save(embeddings_file, embeddings)
+        print(f"  ✓ Saved embeddings: {embeddings_file}")
+        
+        # Save BM25 index and chunks
         index_data = {
-            'category': category_name,
-            'chunks': [chunk.text for chunk in all_chunks],
-            'chunk_metadata': chunk_metadata,
-            'bm25_index': bm25_index,
-            'embeddings': embeddings,
-            'tokenized_docs': tokenized_docs
+            "bm25_index": bm25_index,
+            "chunks": chunks_data,
+            "corpus_type": corpus_type
+        }
+        index_file = index_path / "index.pkl"
+        with open(index_file, 'wb') as f:
+            pickle.dump(index_data, f)
+        print(f"  ✓ Saved index: {index_file}")
+        
+        # Create summary
+        summary = {
+            "corpus_type": corpus_type,
+            "created_at": datetime.now().isoformat(),
+            "num_documents": len(documents),
+            "num_chunks": len(all_chunks),
+            "embedding_model": EMBEDDING_MODEL_NAME,
+            "embedding_dimension": embeddings.shape[1] if len(embeddings.shape) > 1 else 0,
+            "index_directory": str(index_path),
+            "documents": doc_stats,
+            "config": {
+                "chunk_strategy": get_preprocessing_config(corpus_type).get("chunk_strategy"),
+                "chunk_size": get_preprocessing_config(corpus_type).get("chunk_size"),
+                "overlap": get_preprocessing_config(corpus_type).get("overlap")
+            }
         }
         
-        return index_data
+        # Save summary
+        with open(summary_file, 'w') as f:
+            json.dump(summary, f, indent=2)
+        print(f"  ✓ Saved summary: {summary_file}")
+        
+        print(f"\n{'='*80}")
+        print(f"Ingestion complete for {corpus_type}!")
+        print(f"  Documents: {len(documents)}")
+        print(f"  Chunks: {len(all_chunks)}")
+        print(f"  Embeddings: {embeddings.shape}")
+        print(f"{'='*80}\n")
+        
+        return summary
     
-    def _tokenize(self, text: str) -> List[str]:
-        """Simple tokenization by splitting on whitespace and punctuation."""
-        import re
-        tokens = re.findall(r'\b\w+\b', text.lower())
-        return tokens
-    
-    def save_index(self, category_name: str, index_data: Dict[str, Any]):
+    def ingest_all_corpora(self, force_rebuild: bool = False) -> Dict[str, Dict[str, Any]]:
         """
-        Save index data to disk.
+        Process all corpus types.
         
         Args:
-            category_name: Name of the corpus category
-            index_data: Index data dictionary
-        """
-        category_index_dir = INDEX_DIR / category_name
-        category_index_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Save embeddings and metadata as numpy/pickle files
-        embeddings_path = category_index_dir / "embeddings.npy"
-        np.save(embeddings_path, index_data['embeddings'])
-        
-        # Save BM25 index and other data with pickle
-        index_file_path = category_index_dir / "index.pkl"
-        with open(index_file_path, 'wb') as f:
-            pickle.dump({
-                'chunks': index_data['chunks'],
-                'chunk_metadata': index_data['chunk_metadata'],
-                'bm25_index': index_data['bm25_index'],
-                'tokenized_docs': index_data['tokenized_docs']
-            }, f)
-        
-        # Save summary info as JSON
-        summary_path = category_index_dir / "summary.json"
-        with open(summary_path, 'w') as f:
-            json.dump({
-                'category': category_name,
-                'num_chunks': len(index_data['chunks']),
-                'embedding_dim': index_data['embeddings'].shape[1] if len(index_data['embeddings']) > 0 else 0
-            }, f, indent=2)
-        
-        print(f"Index saved to: {category_index_dir}")
-    
-    def ingest_all(self, categories: List[str] = None):
-        """
-        Ingest all documents from the corpus.
-        
-        Args:
-            categories: Optional list of specific categories to process.
-                       If None, processes all discovered categories.
-        """
-        documents_by_category = self.discover_documents()
-        
-        if not documents_by_category:
-            print("No documents found to process.")
-            return
-        
-        if categories:
-            # Filter to only specified categories
-            documents_by_category = {
-                k: v for k, v in documents_by_category.items() 
-                if k in categories
-            }
-        
-        total_categories = len(documents_by_category)
-        print(f"\n{'='*60}")
-        print(f"Starting ingestion for {total_categories} categories")
-        print(f"{'='*60}\n")
-        
-        for idx, (category_name, documents) in enumerate(documents_by_category.items(), 1):
-            print(f"\n[{idx}/{total_categories}] Processing category: {category_name}")
+            force_rebuild: If True, rebuild all indexes
             
-            index_data = self.process_category(category_name, documents)
-            
-            if index_data:
-                self.save_index(category_name, index_data)
-                print(f"✓ Completed category: {category_name}")
-            else:
-                print(f"✗ No data to index for category: {category_name}")
+        Returns:
+            Dictionary with statistics for each corpus type
+        """
+        results = {}
         
-        print(f"\n{'='*60}")
-        print("Ingestion complete!")
-        print(f"{'='*60}")
+        for corpus_type in CORPUS_CATEGORIES:
+            result = self.process_corpus(corpus_type, force_rebuild)
+            results[corpus_type] = result
+        
+        return results
 
 
 def main():
-    """Main function to run ingestion."""
+    """CLI entry point for ingestion service."""
     import argparse
     
-    parser = argparse.ArgumentParser(description="RAG Document Ingestion Service")
+    parser = argparse.ArgumentParser(description="RAG Ingestion Service")
     parser.add_argument(
-        '--corpus-dir', 
-        type=Path, 
-        default=None,
-        help='Path to corpus directory (default: from config)'
+        "--corpus", 
+        type=str, 
+        choices=CORPUS_CATEGORIES + ["all"],
+        default="all",
+        help="Corpus type to process (default: all)"
     )
     parser.add_argument(
-        '--categories', 
-        nargs='+', 
+        "--corpus-dir",
+        type=Path,
         default=None,
-        help='Specific categories to process (default: all)'
+        help="Custom corpus directory"
+    )
+    parser.add_argument(
+        "--index-dir",
+        type=Path,
+        default=None,
+        help="Custom index directory"
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force rebuild of existing indexes"
     )
     
     args = parser.parse_args()
     
-    service = IngestionService(corpus_dir=args.corpus_dir)
-    service.ingest_all(categories=args.categories)
+    # Initialize service
+    service = IngestionService(
+        corpus_dir=args.corpus_dir,
+        index_dir=args.index_dir
+    )
+    
+    # Process corpora
+    if args.corpus == "all":
+        results = service.ingest_all_corpora(force_rebuild=args.force)
+        print("\n" + "="*80)
+        print("SUMMARY - All Corpora")
+        print("="*80)
+        for corpus_type, stats in results.items():
+            if "error" not in stats:
+                print(f"{corpus_type}: {stats['num_documents']} docs, {stats['num_chunks']} chunks")
+            else:
+                print(f"{corpus_type}: ERROR - {stats['error']}")
+    else:
+        result = service.process_corpus(args.corpus, force_rebuild=args.force)
+        if "error" not in result:
+            print(f"\nSuccessfully processed {args.corpus}:")
+            print(f"  Documents: {result['num_documents']}")
+            print(f"  Chunks: {result['num_chunks']}")
+        else:
+            print(f"Error: {result['error']}")
 
 
 if __name__ == "__main__":
