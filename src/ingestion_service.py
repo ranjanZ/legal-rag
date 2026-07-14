@@ -3,6 +3,7 @@ Ingestion Service for RAG System.
 Handles document processing, chunking, embedding, and indexing.
 Creates separate indexes per corpus category (contractnli, cuad, maud, cuad_pdf_samples).
 Uses BM25 for sparse retrieval and sentence-transformers for dense embeddings.
+Indexes are maintained in the same folder structure as data/corpus/.
 """
 
 import json
@@ -29,6 +30,7 @@ class IngestionService:
     """
     Service for ingesting documents into the RAG system.
     Creates both BM25 and semantic indexes for each corpus category.
+    Indexes are stored in the same folder structure as the corpus.
     """
     
     def __init__(self, corpus_dir: Path = None, index_dir: Path = None):
@@ -37,10 +39,15 @@ class IngestionService:
         
         Args:
             corpus_dir: Base directory containing corpus folders
-            index_dir: Directory to save indexes
+            index_dir: Directory to save indexes. If None, uses same structure as corpus_dir
         """
         self.corpus_dir = corpus_dir or DEFAULT_CORPUS_DIR
-        self.index_dir = index_dir or INDEX_DIR
+        # Use the same folder structure as corpus_dir for indexes
+        if index_dir is None:
+            # Create index directory parallel to corpus directory
+            self.index_dir = self.corpus_dir.parent / "index"
+        else:
+            self.index_dir = index_dir
         self.embedding_model = None
         
         # Ensure directories exist
@@ -93,7 +100,7 @@ class IngestionService:
         
         documents = []
         for ext in ['*.txt', '*.pdf', '*.docx']:
-            documents.extend(corpus_path.glob(ext))
+            documents.extend(corpus_path.rglob(ext))  # Use rglob for recursive search
         
         print(f"Found {len(documents)} documents in {corpus_type}")
         return sorted(documents)
@@ -101,6 +108,7 @@ class IngestionService:
     def process_corpus(self, corpus_type: str, force_rebuild: bool = False) -> Dict[str, Any]:
         """
         Process all documents in a corpus type and create indexes.
+        Indexes are stored in the same folder structure as the corpus.
         
         Args:
             corpus_type: Type of corpus to process
@@ -113,8 +121,10 @@ class IngestionService:
         print(f"Processing corpus: {corpus_type}")
         print(f"{'='*80}")
         
-        # Check if index already exists
+        # Create index directory with same folder structure as corpus
         index_path = self.index_dir / corpus_type
+        
+        # Check if index already exists
         summary_file = index_path / "summary.json"
         
         if index_path.exists() and summary_file.exists() and not force_rebuild:
@@ -122,7 +132,7 @@ class IngestionService:
             with open(summary_file, 'r') as f:
                 return json.load(f)
         
-        # Create index directory
+        # Create index directory (preserving folder structure)
         index_path.mkdir(parents=True, exist_ok=True)
         
         # Discover documents
@@ -131,7 +141,7 @@ class IngestionService:
             print(f"No documents found for {corpus_type}")
             return {"error": "No documents found"}
         
-        # Process documents into chunks
+        # Process documents into chunks, preserving folder structure in index
         all_chunks: List[Chunk] = []
         doc_stats = []
         
@@ -144,11 +154,16 @@ class IngestionService:
                 )
                 all_chunks.extend(chunks)
                 
+                # Calculate relative path from corpus root to preserve structure
+                corpus_root = self.corpus_dir / corpus_type
+                relative_path = doc_path.relative_to(corpus_root)
+                
                 doc_stats.append({
                     "file_name": doc_path.name,
                     "document_id": generate_document_id(doc_path),
                     "num_chunks": len(chunks),
-                    "file_size": doc_path.stat().st_size
+                    "file_size": doc_path.stat().st_size,
+                    "relative_path": str(relative_path)
                 })
                 
                 print(f"  → Generated {len(chunks)} chunks")
@@ -183,9 +198,17 @@ class IngestionService:
             print("Warning: rank-bm25 not installed. BM25 index will not be created.")
             bm25_index = None
         
-        # Prepare chunk metadata for serialization
+        # Prepare chunk metadata for serialization with relative paths
         chunks_data = []
         for chunk in all_chunks:
+            # Calculate relative path for each chunk
+            corpus_root = self.corpus_dir / corpus_type
+            file_path = Path(chunk.metadata.get('file_path', ''))
+            try:
+                relative_path = str(file_path.relative_to(corpus_root))
+            except ValueError:
+                relative_path = chunk.metadata.get('file_name', '')
+            
             chunks_data.append({
                 "document_id": chunk.document_id,
                 "chunk_id": chunk.chunk_id,
@@ -194,7 +217,8 @@ class IngestionService:
                 "end_pos": chunk.end_pos,
                 "metadata": chunk.metadata,
                 "section_number": chunk.section_number,
-                "clause_type": chunk.clause_type
+                "clause_type": chunk.clause_type,
+                "relative_path": relative_path
             })
         
         # Save indexes
