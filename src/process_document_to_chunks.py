@@ -396,9 +396,17 @@ def process_document_to_chunks(file_path: Path,
     # Generate document ID
     document_id = generate_document_id(file_path)
     
+    # Initialize metadata extractor if available
+    extractor = None
+    if METADATA_EXTRACTION_ENABLED:
+        try:
+            extractor = MetadataExtractor()
+        except Exception as e:
+            print(f"  ⚠ Could not initialize MetadataExtractor: {e}")
+    
     # Load pre-extracted metadata from data/metadata/ directory
     doc_metadata = None
-    if load_existing_metadata and METADATA_EXTRACTION_ENABLED:
+    if load_existing_metadata and extractor is not None:
         try:
             from metadata_extractor import load_metadata as load_meta
             doc_metadata = load_meta(document_id, corpus_type)
@@ -412,9 +420,8 @@ def process_document_to_chunks(file_path: Path,
             print(f"  ⚠ Error loading metadata for {file_path.name}: {e}")
     
     # Fallback: extract metadata on-the-fly if not loaded and extract_metadata is True
-    elif extract_metadata and METADATA_EXTRACTION_ENABLED:
+    elif extract_metadata and extractor is not None:
         try:
-            extractor = MetadataExtractor()
             doc_metadata_obj = extractor.extract_metadata(
                 text=text,
                 file_path=file_path,
@@ -458,7 +465,7 @@ def process_document_to_chunks(file_path: Path,
         
         # Detect clause type for this specific chunk if not already set
         chunk_clause_type = raw_chunk.get('clause_type')
-        if not chunk_clause_type and METADATA_EXTRACTION_ENABLED:
+        if not chunk_clause_type and extractor is not None:
             # Try to detect clause type from chunk text
             chunk_text_lower = raw_chunk['text'].lower()
             for clause_type, patterns in extractor.clause_compiled.items():
