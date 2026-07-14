@@ -363,7 +363,8 @@ class RetrievalService:
         return all_results[:top_k]
 
 
-def main():
+
+if __name__ == "__main__":
     """Main function to test retrieval."""
     import argparse
     
@@ -410,16 +411,17 @@ def main():
     
     if not available_indexes:
         print("No indexes found. Please run ingestion first.")
-        return
+        
     
+    query="What is the formula for calculating the per Transaction Inquiry advertising fee that i-Escrow must pay to 2TheMart?"
     # Perform search
-    print(f"Query: {args.query}")
+    print(f"Query: {query}")
     print(f"Search type: {args.search_type}")
     print(f"Top-K: {args.top_k}")
     print(f"{'='*60}\n")
-    
+
     results = service.search(
-        query=args.query,
+        query=query,
         categories=args.categories,
         top_k=args.top_k,
         search_type=args.search_type
@@ -427,7 +429,6 @@ def main():
     
     if not results:
         print("No results found.")
-        return
     
     print(f"Found {len(results)} results:\n")
     
@@ -446,6 +447,3 @@ def main():
         
         print()
 
-
-if __name__ == "__main__":
-    main()
