@@ -226,7 +226,9 @@ Your task is to provide accurate, comprehensive answers using the retrieved chun
 
 IMPORTANT REQUIREMENTS:
 1. Answer the question clearly and concisely
-2. CITE YOUR SOURCES: For each piece of information, cite the chunk using [Chunk ID: {chunk_id}, File: {file_name}]
+2. CITE YOUR SOURCES: For each piece of information, cite the chunk using [Chunk ID: xxx, File: yyy]
+   - Each chunk in the context below already has its Chunk ID and File name listed
+   - Reference them in your answer like: [Chunk ID: abc123, File: contract.txt]
 3. If chunks contradict each other, acknowledge the contradiction
 4. If information is insufficient, state what's missing
 5. Use quotes sparingly and only for critical definitions
