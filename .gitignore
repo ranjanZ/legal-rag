@@ -4,23 +4,42 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Data files that might be large
-#data/chunks/
-#data/index/
-
-# Dependencies
-.venv/
-venv/
+.Python
 env/
-.env
-.env.local
-.env.*
+venv/
+.venv/
+.ENV
+.ENV.*
+.python-version
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage/
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg
+*.egg-info/
+*.so
+*.whl
 
 # Logs
 *.log
 
-# OS generated files
+# Environment variables
+.env
+.env.local
+.env.*
+!.env.example
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
 ```
