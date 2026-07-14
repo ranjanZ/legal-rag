@@ -162,7 +162,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "a1deb3145a65be30",
@@ -234,7 +234,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "a1deb3145a65be30",
@@ -306,7 +306,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": "8.",
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "a1deb3145a65be30",
@@ -396,7 +396,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": "11.",
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "a1deb3145a65be30",
@@ -414,7 +414,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": "12.",
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "a1deb3145a65be30",
@@ -468,7 +468,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": "15.",
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "a1deb3145a65be30",

@@ -302,6 +302,7 @@ if __name__ == '__main__':
     
     # Example: Process a CUAD document
     cuad_file = Path('data/corpus/cuad/SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT.txt')
+    cuad_file = Path('data/corpus/cuad/VIRTUALSCOPICS\,INC_11_12_2010-EX-10.1-STRATEGIC\ ALLIANCE\ AGREEMENT.txt')
     if cuad_file.exists():
         metadata = preprocessor.process_document(cuad_file)
         print("=== CUAD Document Metadata ===")

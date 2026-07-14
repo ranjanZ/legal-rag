@@ -1,37 +1,69 @@
 {
   "corpus_type": "maud",
-  "created_at": "2026-07-14T17:45:30.559211",
+  "created_at": "2026-07-14T23:36:08.509587",
   "num_documents": 3,
-  "num_chunks": 2316,
+  "num_chunks": 2322,
   "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
   "embedding_dimension": 384,
+  "index_type": "faiss",
   "index_directory": "data/index/maud",
+  "metadata_directory": "data/metadata/maud",
   "documents": [
     {
       "file_name": "347ac6f2cff261a8_chunks.json",
       "document_id": "c39d3d9ddeceec00",
-      "num_chunks": 721,
-      "file_size": 620449,
+      "num_chunks": 724,
+      "file_size": 623287,
       "relative_path": "347ac6f2cff261a8_chunks.json"
     },
     {
       "file_name": "a60e4737f0066a48_chunks.json",
       "document_id": "cbf1586d73a8820d",
-      "num_chunks": 876,
-      "file_size": 758963,
+      "num_chunks": 877,
+      "file_size": 762561,
       "relative_path": "a60e4737f0066a48_chunks.json"
     },
     {
       "file_name": "ee3cf573a9d1f4fc_chunks.json",
       "document_id": "4e5567aed8f20b05",
-      "num_chunks": 719,
-      "file_size": 625319,
+      "num_chunks": 721,
+      "file_size": 628125,
       "relative_path": "ee3cf573a9d1f4fc_chunks.json"
     }
   ],
+  "metadata_extracted": true,
   "config": {
     "chunk_strategy": "hierarchical",
     "chunk_size": 1024,
     "overlap": 100
-  }
+  },
+  "metadata_stats": [
+    {
+      "file_name": "347ac6f2cff261a8_chunks.json",
+      "document_id": "c39d3d9ddeceec00",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Merger Agreement",
+      "governing_law": "its",
+      "clause_types_count": 10
+    },
+    {
+      "file_name": "a60e4737f0066a48_chunks.json",
+      "document_id": "cbf1586d73a8820d",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Merger Agreement",
+      "governing_law": "the",
+      "clause_types_count": 11
+    },
+    {
+      "file_name": "ee3cf573a9d1f4fc_chunks.json",
+      "document_id": "4e5567aed8f20b05",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Merger Agreement",
+      "governing_law": "the",
+      "clause_types_count": 10
+    }
+  ]
 }

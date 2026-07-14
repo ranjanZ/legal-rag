@@ -20,6 +20,8 @@ The system now implements a **two-phase ingestion process**:
   - **MAUD-specific**: acquirer, target, deal_type
   - **ContractNLI-specific**: has_injunctive_relief, confidentiality_period, mutual_nondisclosure
 
+
+
 #### Phase 2: Chunking with Metadata
 - Loads pre-extracted metadata from `data/metadata/`
 - Chunks documents using corpus-specific strategies:

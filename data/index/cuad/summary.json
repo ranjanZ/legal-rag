@@ -1,37 +1,69 @@
 {
   "corpus_type": "cuad",
-  "created_at": "2026-07-14T17:44:19.323217",
+  "created_at": "2026-07-14T23:35:00.925828",
   "num_documents": 3,
-  "num_chunks": 420,
+  "num_chunks": 421,
   "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
   "embedding_dimension": 384,
+  "index_type": "faiss",
   "index_directory": "data/index/cuad",
+  "metadata_directory": "data/metadata/cuad",
   "documents": [
     {
       "file_name": "1c4148dd144e255f_chunks.json",
       "document_id": "89b3ca6372ed20f0",
-      "num_chunks": 160,
-      "file_size": 73779,
+      "num_chunks": 161,
+      "file_size": 74207,
       "relative_path": "1c4148dd144e255f_chunks.json"
     },
     {
       "file_name": "68e7984fe2b8a8ec_chunks.json",
       "document_id": "871812267d81dbbf",
       "num_chunks": 187,
-      "file_size": 86089,
+      "file_size": 86580,
       "relative_path": "68e7984fe2b8a8ec_chunks.json"
     },
     {
       "file_name": "a1deb3145a65be30_chunks.json",
       "document_id": "cdaf38e0466de368",
       "num_chunks": 73,
-      "file_size": 34469,
+      "file_size": 34521,
       "relative_path": "a1deb3145a65be30_chunks.json"
     }
   ],
+  "metadata_extracted": true,
   "config": {
     "chunk_strategy": "section_based",
     "chunk_size": 512,
     "overlap": 50
-  }
+  },
+  "metadata_stats": [
+    {
+      "file_name": "1c4148dd144e255f_chunks.json",
+      "document_id": "89b3ca6372ed20f0",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Services Agreement",
+      "governing_law": "the",
+      "clause_types_count": 10
+    },
+    {
+      "file_name": "68e7984fe2b8a8ec_chunks.json",
+      "document_id": "871812267d81dbbf",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Services Agreement",
+      "governing_law": "all",
+      "clause_types_count": 9
+    },
+    {
+      "file_name": "a1deb3145a65be30_chunks.json",
+      "document_id": "cdaf38e0466de368",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Purchase Agreement",
+      "governing_law": null,
+      "clause_types_count": 4
+    }
+  ]
 }

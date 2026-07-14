@@ -1,0 +1,1057 @@
+{
+  "questions": [
+    {
+      "question": "What advertising fees does i-Escrow pay to 2TheMart per Transaction Inquiry?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How can 2TheMart terminate the Co-Branding Agreement if development is delayed?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What restrictions apply to banner advertising on the Co-Branded Site?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What audit rights does 2TheMart have regarding i-Escrow's payment records?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What intellectual property rights does i-Escrow grant to 2TheMart?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What trademark restrictions apply to the use of Domain Name in the agreement?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What services are being provided under the ABILITY INC services agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What are the payment terms and invoicing requirements in the ABILITY INC agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What indemnification obligations exist in the ABILITY INC services agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How can either party terminate the ABILITY INC services agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What confidentiality obligations are specified in the ABILITY INC agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What liability caps or limitations exist in the ABILITY INC services agreement?",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the purpose and scope of the joint venture in the ACCELERATED TECHNOLOGIES agreement?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How are profits and losses shared in the ACCELERATED TECHNOLOGIES joint venture?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What governance structure is established for the joint venture?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What intellectual property contributions are required from each party?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How can the joint venture be dissolved or terminated?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What non-compete restrictions apply to the parties in the joint venture?",
+      "expected_sources": [
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the definition of Confidential Information in the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How long must confidentiality obligations survive after termination of the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What exceptions allow disclosure without breaching the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What injunctive relief provisions exist in the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Which state law governs the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What are the return or destruction requirements for confidential information?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Can the Recipient reverse engineer prototypes under the Bosch NDA?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What notice requirements exist for unauthorized use of confidential information?",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the subject matter of the NDA with The Munt?",
+      "expected_sources": [
+        "12032018_NDA_The%20Munt_EN.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the period of confidentiality in The Munt NDA?",
+      "expected_sources": [
+        "12032018_NDA_The%20Munt_EN.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Are there any export control restrictions in The Munt NDA?",
+      "expected_sources": [
+        "12032018_NDA_The%20Munt_EN.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What independent development rights exist in The Munt NDA?",
+      "expected_sources": [
+        "12032018_NDA_The%20Munt_EN.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How are affiliates treated under The Munt NDA?",
+      "expected_sources": [
+        "12032018_NDA_The%20Munt_EN.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What specific obligations do suppliers have under the NSK confidentiality agreement?",
+      "expected_sources": [
+        "5-NSK-Confidentiality-Agreement-for-Suppliers.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the term of the NSK supplier confidentiality agreement?",
+      "expected_sources": [
+        "5-NSK-Confidentiality-Agreement-for-Suppliers.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Are there any warranty disclaimers in the NSK supplier agreement?",
+      "expected_sources": [
+        "5-NSK-Confidentiality-Agreement-for-Suppliers.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What remedies are available for breach of the NSK confidentiality agreement?",
+      "expected_sources": [
+        "5-NSK-Confidentiality-Agreement-for-Suppliers.txt"
+      ],
+      "corpus_type": "contractnli",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Who are the parties involved in the Acacia-Cisco merger agreement?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the effective date of the Acacia-Cisco merger agreement?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What happens to Company Capital Stock upon merger completion?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What representations does the Company make about its capital structure?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What are the closing conditions for the Acacia-Cisco merger?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "How are Company Options and RSUs treated in the merger?",
+      "expected_sources": [
+        "Acacia_Communications_Cisco_Systems.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Who is acquiring Acceleron Pharma in this merger agreement?",
+      "expected_sources": [
+        "Acceleron_Pharma_Inc_Merck_Co.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What regulatory approvals are required for the Acceleron-Merck merger?",
+      "expected_sources": [
+        "Acceleron_Pharma_Inc_Merck_Co.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What termination fees apply if the Acceleron-Merck merger fails?",
+      "expected_sources": [
+        "Acceleron_Pharma_Inc_Merck_Co.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What representations does Acceleron make about its SEC filings?",
+      "expected_sources": [
+        "Acceleron_Pharma_Inc_Merck_Co.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What is the merger consideration for Adamas shareholders?",
+      "expected_sources": [
+        "Adamas_Pharmaceuticals_Supernus_Pharmaceuticals.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "medium",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Who are the parties in the Adamas-Supernus merger agreement?",
+      "expected_sources": [
+        "Adamas_Pharmaceuticals_Supernus_Pharmaceuticals.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "easy",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What covenants restrict Adamas's business operations before closing?",
+      "expected_sources": [
+        "Adamas_Pharmaceuticals_Supernus_Pharmaceuticals.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What employee benefit arrangements are specified in the Adamas merger?",
+      "expected_sources": [
+        "Adamas_Pharmaceuticals_Supernus_Pharmaceuticals.txt"
+      ],
+      "corpus_type": "maud",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Compare confidentiality periods across all NDAs in the dataset.",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt",
+        "12032018_NDA_The%20Munt_EN.txt",
+        "5-NSK-Confidentiality-Agreement-for-Suppliers.txt"
+      ],
+      "corpus_type": "all",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Find all governing law clauses across different contract types.",
+      "expected_sources": [
+        "01_Bosch-Automotive-Service-Solutions-Mutual-Non-Disclosure-Agreement-7-12-17.txt",
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt",
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt"
+      ],
+      "corpus_type": "all",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "What termination rights exist across commercial agreements vs merger agreements?",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt",
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt",
+        "Acacia_Communications_Cisco_Systems.txt",
+        "Acceleron_Pharma_Inc_Merck_Co.txt"
+      ],
+      "corpus_type": "all",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Compare indemnification provisions in services agreements vs joint ventures.",
+      "expected_sources": [
+        "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT.txt",
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    },
+    {
+      "question": "Find all intellectual property license grants across different contract types.",
+      "expected_sources": [
+        "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt",
+        "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT.txt"
+      ],
+      "corpus_type": "cuad",
+      "difficulty": "hard",
+      "recalls": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "retrieved_count": 10,
+      "success": true
+    }
+  ],
+  "aggregate_metrics": {
+    "1": {
+      "total_recall": 54.0,
+      "count": 54,
+      "average_recall": 1.0
+    },
+    "3": {
+      "total_recall": 54.0,
+      "count": 54,
+      "average_recall": 1.0
+    },
+    "5": {
+      "total_recall": 54.0,
+      "count": 54,
+      "average_recall": 1.0
+    },
+    "10": {
+      "total_recall": 54.0,
+      "count": 54,
+      "average_recall": 1.0
+    }
+  },
+  "by_corpus": {
+    "cuad": {
+      "1": {
+        "total_recall": 20.0,
+        "count": 20,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 20.0,
+        "count": 20,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 20.0,
+        "count": 20,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 20.0,
+        "count": 20,
+        "average_recall": 1.0
+      }
+    },
+    "contractnli": {
+      "1": {
+        "total_recall": 17.0,
+        "count": 17,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 17.0,
+        "count": 17,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 17.0,
+        "count": 17,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 17.0,
+        "count": 17,
+        "average_recall": 1.0
+      }
+    },
+    "maud": {
+      "1": {
+        "total_recall": 14.0,
+        "count": 14,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 14.0,
+        "count": 14,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 14.0,
+        "count": 14,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 14.0,
+        "count": 14,
+        "average_recall": 1.0
+      }
+    },
+    "all": {
+      "1": {
+        "total_recall": 3.0,
+        "count": 3,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 3.0,
+        "count": 3,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 3.0,
+        "count": 3,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 3.0,
+        "count": 3,
+        "average_recall": 1.0
+      }
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "1": {
+        "total_recall": 11.0,
+        "count": 11,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 11.0,
+        "count": 11,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 11.0,
+        "count": 11,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 11.0,
+        "count": 11,
+        "average_recall": 1.0
+      }
+    },
+    "medium": {
+      "1": {
+        "total_recall": 18.0,
+        "count": 18,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 18.0,
+        "count": 18,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 18.0,
+        "count": 18,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 18.0,
+        "count": 18,
+        "average_recall": 1.0
+      }
+    },
+    "hard": {
+      "1": {
+        "total_recall": 25.0,
+        "count": 25,
+        "average_recall": 1.0
+      },
+      "3": {
+        "total_recall": 25.0,
+        "count": 25,
+        "average_recall": 1.0
+      },
+      "5": {
+        "total_recall": 25.0,
+        "count": 25,
+        "average_recall": 1.0
+      },
+      "10": {
+        "total_recall": 25.0,
+        "count": 25,
+        "average_recall": 1.0
+      }
+    }
+  }
+}

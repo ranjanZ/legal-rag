@@ -2,13 +2,14 @@
 Ingestion Service for RAG System.
 Handles document processing, chunking, embedding, and indexing.
 Creates separate indexes per corpus category (contractnli, cuad, maud, cuad_pdf_samples).
-Uses BM25 for sparse retrieval and sentence-transformers for dense embeddings.
+Uses BM25 for sparse retrieval and FAISS for dense embeddings.
 Indexes are maintained in the same folder structure as data/corpus/.
 """
 
 import json
 import pickle
 import numpy as np
+import faiss
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime
@@ -32,7 +33,7 @@ from metadata_extractor import (
 class IngestionService:
     """
     Service for ingesting documents into the RAG system.
-    Creates both BM25 and semantic indexes for each corpus category.
+    Creates both BM25 and FAISS semantic indexes for each corpus category.
     Indexes are stored in the same folder structure as the corpus.
     """
     
@@ -76,7 +77,7 @@ class IngestionService:
             texts: List of text strings to embed
             
         Returns:
-            Numpy array of embeddings
+            Numpy array of embeddings (float32 for FAISS compatibility)
         """
         self._load_embedding_model()
         embeddings = self.embedding_model.encode(
@@ -84,7 +85,8 @@ class IngestionService:
             show_progress_bar=True,
             convert_to_numpy=True
         )
-        return embeddings
+        # FAISS requires float32
+        return embeddings.astype('float32')
     
     def _build_bm25_index(self, texts: List[str]):
         """
@@ -110,6 +112,31 @@ class IngestionService:
             print("Warning: rank-bm25 not installed. BM25 index will not be created.")
             return None
     
+    def _build_faiss_index(self, embeddings: np.ndarray):
+        """
+        Build a FAISS index from embeddings.
+        Uses IndexFlatIP (Inner Product) on L2-normalized vectors,
+        which is mathematically equivalent to Cosine Similarity.
+        
+        Args:
+            embeddings: Numpy array of embeddings (float32)
+            
+        Returns:
+            FAISS index object
+        """
+        print("\nBuilding FAISS index...")
+        dimension = embeddings.shape[1]
+        
+        # Normalize embeddings for cosine similarity
+        faiss.normalize_L2(embeddings)
+        
+        # Use Flat Inner Product (equivalent to cosine on normalized vectors)
+        faiss_index = faiss.IndexFlatIP(dimension)
+        faiss_index.add(embeddings)
+        
+        print(f"FAISS index built with {faiss_index.ntotal} vectors of dimension {dimension}")
+        return faiss_index
+    
     def discover_documents(self, corpus_type: str) -> List[Path]:
         """
         Discover all documents in a corpus type folder.
@@ -126,7 +153,7 @@ class IngestionService:
             return []
         
         documents = []
-        for ext in ['*.txt', '*.pdf', '*.docx','*.jsonl', '*.json']:
+        for ext in ['*.txt', '*.pdf', '*.docx', '*.jsonl', '*.json']:
             documents.extend(corpus_path.rglob(ext))  # Use rglob for recursive search
         
         print(f"Found {len(documents)} documents in {corpus_type}")
@@ -248,10 +275,12 @@ class IngestionService:
         # Extract texts for indexing
         texts = [chunk.text for chunk in all_chunks]
         
-        # 1. Generate Dense Embeddings (Semantic Index)
+        # 1. Generate Dense Embeddings and Build FAISS Index (Semantic Index)
         print("\nGenerating embeddings...")
         embeddings = self._generate_embeddings(texts)
         print(f"Embeddings shape: {embeddings.shape}")
+        
+        faiss_index = self._build_faiss_index(embeddings)
         
         # 2. Build Sparse BM25 Index (Lexical Index)
         bm25_index = self._build_bm25_index(texts)
@@ -282,10 +311,10 @@ class IngestionService:
         # Save indexes
         print(f"\nSaving indexes to {index_path}...")
         
-        # Save embeddings
-        embeddings_file = index_path / "embeddings.npy"
-        np.save(embeddings_file, embeddings)
-        print(f"  ✓ Saved embeddings: {embeddings_file}")
+        # Save FAISS index (replaces embeddings.npy)
+        faiss_file = index_path / "faiss_index.bin"
+        faiss.write_index(faiss_index, str(faiss_file))
+        print(f"  ✓ Saved FAISS index: {faiss_file}")
         
         # Save BM25 index and chunks
         index_data = {
@@ -306,6 +335,7 @@ class IngestionService:
             "num_chunks": len(all_chunks),
             "embedding_model": EMBEDDING_MODEL_NAME,
             "embedding_dimension": embeddings.shape[1] if len(embeddings.shape) > 1 else 0,
+            "index_type": "faiss",
             "index_directory": str(index_path),
             "metadata_directory": str(Path("data/metadata") / corpus_type),
             "documents": doc_stats,
@@ -330,7 +360,7 @@ class IngestionService:
         print(f"Ingestion complete for {corpus_type}!")
         print(f"  Documents: {len(documents)}")
         print(f"  Chunks: {len(all_chunks)}")
-        print(f"  Embeddings: {embeddings.shape}")
+        print(f"  FAISS Index: {faiss_index.ntotal} vectors, dimension {embeddings.shape[1]}")
         print(f"{'='*80}\n")
         
         return summary

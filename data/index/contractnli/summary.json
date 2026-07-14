@@ -1,37 +1,69 @@
 {
   "corpus_type": "contractnli",
-  "created_at": "2026-07-14T17:44:08.192408",
+  "created_at": "2026-07-14T23:34:48.568101",
   "num_documents": 3,
-  "num_chunks": 517,
+  "num_chunks": 520,
   "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
   "embedding_dimension": 384,
+  "index_type": "faiss",
   "index_directory": "data/index/contractnli",
+  "metadata_directory": "data/metadata/contractnli",
   "documents": [
     {
       "file_name": "0cef515f9cf46300_chunks.json",
       "document_id": "a870cbf7adb0d574",
       "num_chunks": 103,
-      "file_size": 26515,
+      "file_size": 26560,
       "relative_path": "0cef515f9cf46300_chunks.json"
     },
     {
       "file_name": "657c3e9c71732e5a_chunks.json",
       "document_id": "72db25e33c104b06",
-      "num_chunks": 242,
-      "file_size": 60632,
+      "num_chunks": 245,
+      "file_size": 60726,
       "relative_path": "657c3e9c71732e5a_chunks.json"
     },
     {
       "file_name": "b7a3d16c420e938f_chunks.json",
       "document_id": "a98666ee732b5989",
       "num_chunks": 172,
-      "file_size": 43717,
+      "file_size": 43783,
       "relative_path": "b7a3d16c420e938f_chunks.json"
     }
   ],
+  "metadata_extracted": true,
   "config": {
     "chunk_strategy": "clause_based",
     "chunk_size": 256,
     "overlap": 25
-  }
+  },
+  "metadata_stats": [
+    {
+      "file_name": "0cef515f9cf46300_chunks.json",
+      "document_id": "a870cbf7adb0d574",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Non-Disclosure Agreement",
+      "governing_law": "the",
+      "clause_types_count": 3
+    },
+    {
+      "file_name": "657c3e9c71732e5a_chunks.json",
+      "document_id": "72db25e33c104b06",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Non-Disclosure Agreement",
+      "governing_law": "the",
+      "clause_types_count": 7
+    },
+    {
+      "file_name": "b7a3d16c420e938f_chunks.json",
+      "document_id": "a98666ee732b5989",
+      "party_1": null,
+      "party_2": null,
+      "contract_type": "Non-Disclosure Agreement",
+      "governing_law": "England",
+      "clause_types_count": 7
+    }
+  ]
 }

@@ -18,7 +18,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -36,7 +36,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -54,7 +54,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -72,7 +72,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -90,7 +90,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "governing_law"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -144,7 +144,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -162,7 +162,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -180,7 +180,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -198,7 +198,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -270,7 +270,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -288,7 +288,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -342,7 +342,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -378,7 +378,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -414,7 +414,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "dispute_resolution"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -468,7 +468,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -522,7 +522,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -540,7 +540,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -558,7 +558,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -612,7 +612,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -684,7 +684,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -702,7 +702,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -756,7 +756,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -774,7 +774,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -792,7 +792,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -828,7 +828,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -882,7 +882,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -954,7 +954,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1008,7 +1008,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1026,7 +1026,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1062,7 +1062,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1098,7 +1098,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1116,7 +1116,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1170,7 +1170,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1188,7 +1188,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1314,7 +1314,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1350,7 +1350,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1368,7 +1368,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1386,7 +1386,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1404,7 +1404,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1440,7 +1440,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1458,7 +1458,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1530,7 +1530,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1728,7 +1728,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1746,7 +1746,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1764,7 +1764,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1782,7 +1782,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1854,7 +1854,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1872,7 +1872,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1890,7 +1890,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1908,7 +1908,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1926,7 +1926,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -1944,7 +1944,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2034,7 +2034,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2196,7 +2196,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2214,7 +2214,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2268,7 +2268,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2286,7 +2286,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2340,7 +2340,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2376,7 +2376,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2394,7 +2394,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2430,7 +2430,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2448,7 +2448,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2466,7 +2466,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2484,7 +2484,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2502,7 +2502,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2520,7 +2520,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2538,7 +2538,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2556,7 +2556,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2574,7 +2574,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2592,7 +2592,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2610,7 +2610,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2628,7 +2628,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2646,7 +2646,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2664,7 +2664,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2682,7 +2682,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2700,7 +2700,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2718,7 +2718,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2736,7 +2736,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2754,7 +2754,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2772,7 +2772,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2790,7 +2790,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2808,7 +2808,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2826,7 +2826,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2844,7 +2844,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2862,7 +2862,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2880,7 +2880,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2898,7 +2898,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2916,7 +2916,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2934,7 +2934,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2952,7 +2952,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2970,7 +2970,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -2988,7 +2988,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3078,7 +3078,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "dispute_resolution"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3114,7 +3114,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3132,7 +3132,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3204,7 +3204,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3222,7 +3222,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3240,7 +3240,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3276,7 +3276,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3348,7 +3348,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3366,7 +3366,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3384,7 +3384,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3402,7 +3402,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3420,7 +3420,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3438,7 +3438,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3456,7 +3456,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3510,7 +3510,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3528,7 +3528,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3564,7 +3564,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3582,7 +3582,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3600,7 +3600,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3618,7 +3618,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3636,7 +3636,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3654,7 +3654,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3672,7 +3672,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3690,7 +3690,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3744,7 +3744,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3762,7 +3762,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3798,7 +3798,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3834,7 +3834,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3852,7 +3852,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3870,7 +3870,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3888,7 +3888,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3924,7 +3924,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3942,7 +3942,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3960,7 +3960,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3978,7 +3978,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -3996,7 +3996,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4014,7 +4014,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4032,7 +4032,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4050,7 +4050,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4068,7 +4068,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4086,7 +4086,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4104,7 +4104,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4122,7 +4122,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4140,7 +4140,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4158,7 +4158,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4176,7 +4176,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4194,7 +4194,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4212,7 +4212,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4374,7 +4374,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4464,7 +4464,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4482,7 +4482,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4518,7 +4518,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4536,7 +4536,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4554,7 +4554,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4608,7 +4608,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4644,7 +4644,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4680,7 +4680,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4698,7 +4698,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4716,7 +4716,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4734,7 +4734,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4752,7 +4752,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4788,7 +4788,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4806,7 +4806,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4824,7 +4824,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4842,7 +4842,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4860,7 +4860,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4896,7 +4896,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4914,7 +4914,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4932,7 +4932,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4950,7 +4950,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -4968,7 +4968,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5004,7 +5004,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5022,7 +5022,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5040,7 +5040,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5058,7 +5058,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5076,7 +5076,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5094,7 +5094,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5112,7 +5112,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5148,7 +5148,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5166,7 +5166,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5184,7 +5184,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5202,7 +5202,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5310,7 +5310,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5364,7 +5364,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5382,7 +5382,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5400,7 +5400,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5418,7 +5418,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5436,7 +5436,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5454,7 +5454,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5472,7 +5472,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5580,7 +5580,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5616,7 +5616,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5634,7 +5634,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5688,7 +5688,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5706,7 +5706,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5724,7 +5724,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5760,7 +5760,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5778,7 +5778,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5814,7 +5814,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5886,7 +5886,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5922,7 +5922,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5940,7 +5940,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5958,7 +5958,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -5976,7 +5976,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "intellectual_property"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6066,7 +6066,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6084,7 +6084,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6102,7 +6102,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6138,7 +6138,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6174,7 +6174,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6210,7 +6210,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6246,7 +6246,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6300,7 +6300,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6318,7 +6318,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "governing_law"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6336,7 +6336,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6354,7 +6354,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6372,7 +6372,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6390,7 +6390,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6408,7 +6408,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6426,7 +6426,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6444,7 +6444,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6462,7 +6462,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6480,7 +6480,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6498,7 +6498,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6516,7 +6516,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6534,7 +6534,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6552,7 +6552,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "insurance"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6570,7 +6570,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6588,7 +6588,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6606,7 +6606,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6750,7 +6750,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6768,7 +6768,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6822,7 +6822,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6840,7 +6840,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6858,7 +6858,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6876,7 +6876,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6894,7 +6894,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6912,7 +6912,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6930,7 +6930,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -6984,7 +6984,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7002,7 +7002,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7020,7 +7020,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7038,7 +7038,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7056,7 +7056,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7074,7 +7074,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7110,7 +7110,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7128,7 +7128,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7146,7 +7146,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7164,7 +7164,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7182,7 +7182,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7200,7 +7200,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7218,7 +7218,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7236,7 +7236,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7254,7 +7254,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7290,7 +7290,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7308,7 +7308,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "termination"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7326,7 +7326,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7416,7 +7416,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7470,7 +7470,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7488,7 +7488,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "indemnification"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7506,7 +7506,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "assignment"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7542,7 +7542,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "governing_law"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",
@@ -7560,7 +7560,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "governing_law"
     },
     {
       "document_id": "ee3cf573a9d1f4fc",

@@ -1,0 +1,235 @@
+{
+  "timestamp": "2026-07-14T22:28:15.623554",
+  "test_type": "end_to_end",
+  "scenario_results": [
+    {
+      "scenario_name": "specific_company_precedent",
+      "query": "Show me all Non-Compete clauses in agreements signed by Tesla.",
+      "filters_applied": {
+        "party_1": "Tesla",
+        "clause_type": "non_compete"
+      },
+      "num_results": 10,
+      "criteria_met": {
+        "results_contain_party_name": false,
+        "results_contain_clause_type": false
+      },
+      "overall_success": false,
+      "sample_result": {
+        "chunk_id": "c39d3d9ddeceec00_0652",
+        "document_id": "c39d3d9ddeceec00",
+        "file_name": "347ac6f2cff261a8_chunks.json",
+        "category": "maud",
+        "text": ": [],\n \"section_number\": null,\n \"clause_type\": null\n },\n {\n \"document_id\": \"347ac6f2cff261a8\",\n \"chunk_id\": \"347ac6f2cff261a8_0380\",\n \"text\": \"n are delivered to the Corporation in the manner prescribed in the first paragraph of this Section. A telegram, cablegram or other electronic transmission consenting to an action to be taken and transmitted by a stockholder or proxyholder, or by a person or persons authorized to act for a stockholder or proxyholder, shall be deemed to be written, signed and dated for the purposes of this Section to the extent permitted by law. Any such consent shall be delivered in accordance with Section 228(d)(1) of the Delaware General Corporation Law.",
+        "score": 0.5,
+        "bm25_score": 1.0,
+        "semantic_score": 0.0,
+        "metadata": {
+          "document_id": "c39d3d9ddeceec00",
+          "file_name": "347ac6f2cff261a8_chunks.json",
+          "corpus_type": "maud",
+          "party_1": null,
+          "party_2": null,
+          "party_1_type": null,
+          "party_2_type": null,
+          "contract_type": "Merger Agreement",
+          "contract_subtype": null,
+          "effective_date": "September 29, 2021",
+          "expiration_date": null,
+          "execution_date": null,
+          "governing_law": "its",
+          "jurisdiction": null,
+          "industry_sector": "Financial Services",
+          "target_industry": "Financial Services",
+          "acquirer_industry": "Financial Services",
+          "has_liability_cap": false,
+          "liability_cap_amount": null,
+          "has_termination_fee": true,
+          "termination_fee_amount": "$0",
+          "clause_types_present": [
+            "confidentiality",
+            "indemnification",
+            "termination",
+            "governing_law",
+            "assignment",
+            "intellectual_property",
+            "warranties",
+            "dispute_resolution",
+            "insurance",
+            "payment_terms"
+          ],
+          "acquirer": null,
+          "target": null,
+          "deal_type": "Merger",
+          "has_injunctive_relief": false,
+          "confidentiality_period": null,
+          "mutual_nondisclosure": false,
+          "word_count": 72247,
+          "section_count": 0,
+          "file_path": "data/chunks/maud/347ac6f2cff261a8_chunks.json",
+          "file_size": 623287,
+          "chunk_strategy": "hierarchical"
+        },
+        "section_number": null,
+        "clause_type": null,
+        "matched_filters": {
+          "party_1": false,
+          "clause_type": false
+        }
+      }
+    },
+    {
+      "scenario_name": "cross_corpus_comparison",
+      "query": "Compare confidentiality provisions in NDAs and Merger Agreements",
+      "filters_applied": {
+        "clause_type": "confidentiality"
+      },
+      "num_results": 10,
+      "criteria_met": {
+        "results_from_multiple_corpus": true
+      },
+      "overall_success": true,
+      "sample_result": {
+        "chunk_id": "c39d3d9ddeceec00_0587",
+        "document_id": "c39d3d9ddeceec00",
+        "file_name": "347ac6f2cff261a8_chunks.json",
+        "category": "maud",
+        "text": "\"their respective successors and assigns. Section 9.6. Entire Agreement; Third-Party Beneficiaries. This Agreement (including the Company Disclosure Letter and the exhibits, annexes, and instruments referred to herein) and the Confidentiality Agreement constitute the entire agreement and supersedes all prior agreements and understandings, both written and oral, among the parties with respect to the subject matter hereof. Except for (a) the rights of the holders of Shares to receive the Offer Price after the Acceptance Time and the Merger Consideration after the Effective Time, and the holders of Company Stock Options and Company Equity Awards to receive the consideration described in Section 3.2 and (b) as provided in Section 6.5 (which is intended for the benefit of each Indemnified Party, all of whom will be third-party beneficiaries of these provisions), this Agreement is not intended to confer upon any Person other than the parties hereto any rights or remedies.",
+        "score": 0.8303168416023254,
+        "bm25_score": 1.0,
+        "semantic_score": 0.6606336832046509,
+        "metadata": {
+          "document_id": "c39d3d9ddeceec00",
+          "file_name": "347ac6f2cff261a8_chunks.json",
+          "corpus_type": "maud",
+          "party_1": null,
+          "party_2": null,
+          "party_1_type": null,
+          "party_2_type": null,
+          "contract_type": "Merger Agreement",
+          "contract_subtype": null,
+          "effective_date": "September 29, 2021",
+          "expiration_date": null,
+          "execution_date": null,
+          "governing_law": "its",
+          "jurisdiction": null,
+          "industry_sector": "Financial Services",
+          "target_industry": "Financial Services",
+          "acquirer_industry": "Financial Services",
+          "has_liability_cap": false,
+          "liability_cap_amount": null,
+          "has_termination_fee": true,
+          "termination_fee_amount": "$0",
+          "clause_types_present": [
+            "confidentiality",
+            "indemnification",
+            "termination",
+            "governing_law",
+            "assignment",
+            "intellectual_property",
+            "warranties",
+            "dispute_resolution",
+            "insurance",
+            "payment_terms"
+          ],
+          "acquirer": null,
+          "target": null,
+          "deal_type": "Merger",
+          "has_injunctive_relief": false,
+          "confidentiality_period": null,
+          "mutual_nondisclosure": false,
+          "word_count": 72247,
+          "section_count": 0,
+          "file_path": "data/chunks/maud/347ac6f2cff261a8_chunks.json",
+          "file_size": 623287,
+          "chunk_strategy": "hierarchical"
+        },
+        "section_number": null,
+        "clause_type": "confidentiality",
+        "matched_filters": {
+          "clause_type": false
+        }
+      }
+    },
+    {
+      "scenario_name": "industry_specific_ma",
+      "query": "Find merger agreements in healthcare sector",
+      "filters_applied": {
+        "target_industry": "Healthcare",
+        "deal_type": "Merger"
+      },
+      "num_results": 10,
+      "criteria_met": {
+        "results_match_industry": false
+      },
+      "overall_success": false,
+      "sample_result": {
+        "chunk_id": "c39d3d9ddeceec00_0276",
+        "document_id": "c39d3d9ddeceec00",
+        "file_name": "347ac6f2cff261a8_chunks.json",
+        "category": "maud",
+        "text": "and healthcare providers or other individuals and entities associated with the healthcare industry. The Company and its Subsidiaries further operate in material compliance with such healthcare compliance program.\",\n \"start_pos\": 99899,\n \"end_pos\": 100730,\n \"metadata\": {\n \"file_name\": \"Acceleron_Pharma_Inc_Merck_Co.txt\",\n \"file_path\": \"/home/zhedge/propheus/legal-rag/data/corpus_lite/maud/Acceleron_Pharma_Inc_Merck_Co.txt\",\n \"file_size\": 338780,\n \"corpus_type\": \"maud\",\n \"chunk_strategy\": \"hierarchical\"\n },\n \"parent_chunk_id\": null,\n \"child_chunk_ids\": [],\n \"section_number\": null,\n \"clause_type\": null\n },\n {\n \"document_id\": \"347ac6f2cff261a8\",\n \"chunk_id\": \"347ac6f2cff261a8_0161\",\n \"text\": \"nd its Subsidiaries further operate in material compliance with such healthcare compliance program.",
+        "score": 0.5,
+        "bm25_score": 1.0,
+        "semantic_score": 0.0,
+        "metadata": {
+          "document_id": "c39d3d9ddeceec00",
+          "file_name": "347ac6f2cff261a8_chunks.json",
+          "corpus_type": "maud",
+          "party_1": null,
+          "party_2": null,
+          "party_1_type": null,
+          "party_2_type": null,
+          "contract_type": "Merger Agreement",
+          "contract_subtype": null,
+          "effective_date": "September 29, 2021",
+          "expiration_date": null,
+          "execution_date": null,
+          "governing_law": "its",
+          "jurisdiction": null,
+          "industry_sector": "Financial Services",
+          "target_industry": "Financial Services",
+          "acquirer_industry": "Financial Services",
+          "has_liability_cap": false,
+          "liability_cap_amount": null,
+          "has_termination_fee": true,
+          "termination_fee_amount": "$0",
+          "clause_types_present": [
+            "confidentiality",
+            "indemnification",
+            "termination",
+            "governing_law",
+            "assignment",
+            "intellectual_property",
+            "warranties",
+            "dispute_resolution",
+            "insurance",
+            "payment_terms"
+          ],
+          "acquirer": null,
+          "target": null,
+          "deal_type": "Merger",
+          "has_injunctive_relief": false,
+          "confidentiality_period": null,
+          "mutual_nondisclosure": false,
+          "word_count": 72247,
+          "section_count": 0,
+          "file_path": "data/chunks/maud/347ac6f2cff261a8_chunks.json",
+          "file_size": 623287,
+          "chunk_strategy": "hierarchical"
+        },
+        "section_number": null,
+        "clause_type": null,
+        "matched_filters": {
+          "target_industry": false,
+          "deal_type": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total_scenarios": 3,
+    "successful_scenarios": 1,
+    "success_rate": 0.33
+  }
+}

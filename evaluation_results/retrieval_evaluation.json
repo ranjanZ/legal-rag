@@ -1,0 +1,357 @@
+{
+  "timestamp": "2026-07-14T22:28:08.855660",
+  "test_type": "retrieval_with_filters",
+  "query_results": [
+    {
+      "query_id": "Q1",
+      "query": "How did Google handle IP Ownership in their vendor contracts?",
+      "intent": "specific_precedent",
+      "expected_filters": {
+        "party_1": "Google",
+        "clause_type": "intellectual_property"
+      },
+      "expected_corpus": [
+        "cuad"
+      ],
+      "results_without_filter": 2,
+      "results_with_filter": 2,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "cdaf38e0466de368_0050",
+          "score": 0.409,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false
+          },
+          "text_preview": "in a manner satisfactory to the Joint Venturers. Then, any unexpended portion of Joint Venture funds shall be distributed to the Joint Venturers in accordance with their prorata ownership in the Joint"
+        },
+        {
+          "chunk_id": "89b3ca6372ed20f0_0041",
+          "score": 0.3625,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false
+          },
+          "text_preview": "hire and the exclusive property of the Recipient. To the extent that any writings or works of authorship may not, by operation of law, be works made for hire, this Agreement shall constitute an irrevo"
+        }
+      ]
+    },
+    {
+      "query_id": "Q2",
+      "query": "What is the typical Liability Cap language in Cloud Services agreements?",
+      "intent": "market_standard",
+      "expected_filters": {
+        "contract_type": "Services Agreement",
+        "has_liability_cap": true
+      },
+      "expected_corpus": [
+        "cuad"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "871812267d81dbbf_0105",
+          "score": 0.5637,
+          "matched_filters": {
+            "contract_type": true,
+            "has_liability_cap": false
+          },
+          "text_preview": "e other party.\\n\\n8.4 TERMINATION FOR BANKRUPTCY. Either party may terminate or suspend this Agreement effective immediately and without liability upon written notice to the other party if any one of "
+        },
+        {
+          "chunk_id": "89b3ca6372ed20f0_0157",
+          "score": 0.547,
+          "matched_filters": {
+            "contract_type": true,
+            "has_liability_cap": false
+          },
+          "text_preview": "ncorporation of Exhibits and Disclosure Schedule. The Exhibit identified in this Agreement is incorporated herein by reference and made a part hereof. 7.9 Amendment and Restatement. This Agreement ame"
+        }
+      ]
+    },
+    {
+      "query_id": "Q3",
+      "query": "Compare the Confidentiality terms in NDAs vs. Merger Agreements.",
+      "intent": "comparative_analysis",
+      "expected_filters": {
+        "clause_type": "confidentiality"
+      },
+      "expected_corpus": [
+        "contractnli",
+        "maud"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "4e5567aed8f20b05_0011",
+          "score": 0.8065,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "nt in its entirety on the terms and subject to the conditions set forth in this Agreement. \\n\\n\\nC. The board of directors of the Company (the \u201cCompany Board\u201d) and the boards of directors of Parent an"
+        },
+        {
+          "chunk_id": "72db25e33c104b06_0070",
+          "score": 0.6454,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "xchange set forth above. Confidentiality obligations shall survive termination of this Agreement for the Period of Confidentiality set forth above unless the Confidential Information is a trade secret"
+        }
+      ]
+    },
+    {
+      "query_id": "Q4",
+      "query": "Find me a Force Majeure clause that specifically mentions pandemics.",
+      "intent": "content_search",
+      "expected_filters": {
+        "clause_type": "force_majeure"
+      },
+      "expected_corpus": [
+        "cuad",
+        "maud"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "89b3ca6372ed20f0_0085",
+          "score": 0.6433,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "party in connection with such Affected Services. If the Force Majeure in question prevails for a continuous period in excess of three months after the date on which the Force Majeure begins, Provider "
+        },
+        {
+          "chunk_id": "871812267d81dbbf_0152",
+          "score": 0.6072,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "\"section_number\": null,\n \"clause_type\": \"force_majeure\"\n },\n {\n \"document_id\": \"68e7984fe2b8a8ec\",\n \"chunk_id\": \"68e7984fe2b8a8ec_0063\",\n \"text\": \"of such prevention, restriction or interference. Howe"
+        }
+      ]
+    },
+    {
+      "query_id": "Q5",
+      "query": "Show me examples of Governing Law clauses set to New York in SaaS agreements.",
+      "intent": "jurisdiction_search",
+      "expected_filters": {
+        "governing_law": "New York",
+        "contract_subtype": "SaaS"
+      },
+      "expected_corpus": [
+        "cuad"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "89b3ca6372ed20f0_0134",
+          "score": 0.5668,
+          "matched_filters": {
+            "governing_law": false,
+            "contract_subtype": false
+          },
+          "text_preview": "number\": null,\n \"clause_type\": \"governing_law\"\n },\n {\n \"document_id\": \"1c4148dd144e255f\",\n \"chunk_id\": \"1c4148dd144e255f_0059\",\n \"text\": \"referred to in this Agreement. 7.2 Governing Law. This Agreeme"
+        },
+        {
+          "chunk_id": "89b3ca6372ed20f0_0007",
+          "score": 0.4707,
+          "matched_filters": {
+            "governing_law": false,
+            "contract_subtype": false
+          },
+          "text_preview": "ection_number\": null,\n \"clause_type\": null\n },\n {\n \"document_id\": \"1c4148dd144e255f\",\n \"chunk_id\": \"1c4148dd144e255f_0003\",\n \"text\": \"follows: 1. Services. 1.1 Provision of Services. (a) Provider agre"
+        }
+      ]
+    },
+    {
+      "query_id": "Q6",
+      "query": "Retrieve any Termination clause with a 30-day notice period.",
+      "intent": "clause_retrieval",
+      "expected_filters": {
+        "clause_type": "termination"
+      },
+      "expected_corpus": [
+        "cuad",
+        "contractnli",
+        "maud"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "c39d3d9ddeceec00_0462",
+          "score": 0.7596,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "},\n {\n \"document_id\": \"347ac6f2cff261a8\",\n \"chunk_id\": \"347ac6f2cff261a8_0272\",\n \"text\": \"h the termination of this Agreement pursuant to Section 8.3(b). Section 8.4. Termination by Parent. This Agree"
+        },
+        {
+          "chunk_id": "89b3ca6372ed20f0_0087",
+          "score": 0.7248,
+          "matched_filters": {
+            "clause_type": false
+          },
+          "text_preview": "\"to Recipient to terminate the Affected Services. The notice to terminate must specify the termination date, which must be not less than ten (10) days after the date on which the notice to terminate i"
+        }
+      ]
+    },
+    {
+      "query_id": "Q7",
+      "query": "Show me all Non-Compete clauses in agreements signed by Tesla.",
+      "intent": "company_specific",
+      "expected_filters": {
+        "party_1": "Tesla",
+        "clause_type": "non_compete"
+      },
+      "expected_corpus": [
+        "cuad"
+      ],
+      "results_without_filter": 3,
+      "results_with_filter": 3,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "89b3ca6372ed20f0_0146",
+          "score": 0.3472,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false
+          },
+          "text_preview": "writing and signed by Recipient and the Provider. No waiver by any Party of any provision of this Agreement or any default, misrepresentation, or breach of warranty or covenant hereunder, whether inte"
+        },
+        {
+          "chunk_id": "871812267d81dbbf_0170",
+          "score": 0.3217,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false
+          },
+          "text_preview": "ext\": \"uch right or obligation.\\n\\n12.12 ENTIRE AGREEMENT. This Agreement contains the entire understanding of the parties hereto with respect to the transactions and matters contemplated hereby, supe"
+        }
+      ]
+    },
+    {
+      "query_id": "Q8",
+      "query": "How did Microsoft structure the Indemnification cap in their 2023 licensing deals?",
+      "intent": "temporal_company",
+      "expected_filters": {
+        "party_1": "Microsoft",
+        "clause_type": "indemnification",
+        "contract_type": "License Agreement"
+      },
+      "expected_corpus": [
+        "cuad"
+      ],
+      "results_without_filter": 3,
+      "results_with_filter": 3,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "89b3ca6372ed20f0_0110",
+          "score": 0.5507,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false,
+            "contract_type": false
+          },
+          "text_preview": "lements, interest, awards, penalties, fines, costs, or expenses of whatever kind, including attorneys' fees, fees and the costs of enforcing any right to indemnification under this Agreement, and the "
+        },
+        {
+          "chunk_id": "cdaf38e0466de368_0050",
+          "score": 0.3391,
+          "matched_filters": {
+            "party_1": false,
+            "clause_type": false,
+            "contract_type": false
+          },
+          "text_preview": "in a manner satisfactory to the Joint Venturers. Then, any unexpended portion of Joint Venture funds shall be distributed to the Joint Venturers in accordance with their prorata ownership in the Joint"
+        }
+      ]
+    },
+    {
+      "query_id": "Q9",
+      "query": "Find all Merger Agreements where Company A acquired a target in the Healthcare sector.",
+      "intent": "maud_sector",
+      "expected_filters": {
+        "target_industry": "Healthcare",
+        "deal_type": "Merger"
+      },
+      "expected_corpus": [
+        "maud"
+      ],
+      "results_without_filter": 5,
+      "results_with_filter": 5,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "4e5567aed8f20b05_0171",
+          "score": 0.7567,
+          "matched_filters": {
+            "target_industry": false,
+            "deal_type": true
+          },
+          "text_preview": "the Company or any Subsidiary, or with Parent or any subsidiary, following the Merger or otherwise. True, correct and complete copies of each Company Option Plan, the standard form of all Contracts re"
+        },
+        {
+          "chunk_id": "c39d3d9ddeceec00_0260",
+          "score": 0.5,
+          "matched_filters": {
+            "target_industry": false,
+            "deal_type": true
+          },
+          "text_preview": "{\n \"document_id\": \"347ac6f2cff261a8\",\n \"chunk_id\": \"347ac6f2cff261a8_0151\",\n \"text\": \"relating to an alleged lack of safety or efficacy or material regulatory compliance of any Product. (j) The Compan"
+        }
+      ]
+    },
+    {
+      "query_id": "Q10",
+      "query": "Find NDAs with injunctive relief provisions.",
+      "intent": "nda_specific",
+      "expected_filters": {
+        "has_injunctive_relief": true
+      },
+      "expected_corpus": [
+        "contractnli"
+      ],
+      "results_without_filter": 4,
+      "results_with_filter": 4,
+      "filter_effectiveness": 0.0,
+      "sample_results": [
+        {
+          "chunk_id": "72db25e33c104b06_0210",
+          "score": 0.6698,
+          "matched_filters": {
+            "has_injunctive_relief": true
+          },
+          "text_preview": "tle it to seek injunctive relief in any court with competent jurisdiction over the party or party\u2019s Affiliate in violation.\",\n \"start_pos\": 12816,\n \"end_pos\": 13168,\n \"metadata\": {\n \"file_name\": \"01_B"
+        },
+        {
+          "chunk_id": "72db25e33c104b06_0209",
+          "score": 0.6444,
+          "matched_filters": {
+            "has_injunctive_relief": true
+          },
+          "text_preview": "\"17. INJUNCTIVE RELIEF. The parties agree that any use of Confidential Information in violation of this Agreement may cause the other party irreparable harm, and may leave it with no adequate remedy a"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_queries_tested": 10,
+    "queries_with_filter_improvement": 10,
+    "average_result_reduction": 0.0,
+    "filter_success_rate": 1.0
+  }
+}

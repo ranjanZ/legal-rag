@@ -18,7 +18,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "0cef515f9cf46300",
@@ -36,7 +36,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "payment_terms"
     },
     {
       "document_id": "0cef515f9cf46300",
@@ -288,7 +288,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "warranties"
     },
     {
       "document_id": "0cef515f9cf46300",
@@ -360,7 +360,7 @@
       "parent_chunk_id": null,
       "child_chunk_ids": [],
       "section_number": null,
-      "clause_type": null
+      "clause_type": "confidentiality"
     },
     {
       "document_id": "0cef515f9cf46300",
