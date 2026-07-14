@@ -24,6 +24,9 @@ from process_document_to_chunks import (
     process_document_to_chunks, Chunk, 
     generate_document_id, generate_chunk_id
 )
+from metadata_extractor import (
+    extract_and_save_metadata, ContractMetadata
+)
 
 
 class IngestionService:
@@ -129,7 +132,8 @@ class IngestionService:
         print(f"Found {len(documents)} documents in {corpus_type}")
         return sorted(documents)
     
-    def process_corpus(self, corpus_type: str, force_rebuild: bool = False) -> Dict[str, Any]:
+    def process_corpus(self, corpus_type: str, force_rebuild: bool = False, 
+                      extract_metadata_first: bool = True) -> Dict[str, Any]:
         """
         Process all documents in a corpus type and create indexes.
         Indexes are stored in the same folder structure as the corpus.
@@ -137,6 +141,7 @@ class IngestionService:
         Args:
             corpus_type: Type of corpus to process
             force_rebuild: If True, rebuild index even if it exists
+            extract_metadata_first: If True, extract metadata before chunking
             
         Returns:
             Dictionary with processing statistics
@@ -165,16 +170,56 @@ class IngestionService:
             print(f"No documents found for {corpus_type}")
             return {"error": "No documents found"}
         
-        # Process documents into chunks, preserving folder structure in index
+        # Phase 1: Extract metadata first if requested
+        if extract_metadata_first:
+            print(f"\n{'='*60}")
+            print(f"Phase 1: Extracting metadata for {corpus_type}")
+            print(f"{'='*60}")
+            
+            metadata_dir = Path("data/metadata") / corpus_type
+            metadata_dir.mkdir(parents=True, exist_ok=True)
+            
+            metadata_stats = []
+            for doc_path in documents:
+                print(f"\nExtracting metadata: {doc_path.name}")
+                try:
+                    metadata = extract_and_save_metadata(
+                        file_path=doc_path,
+                        corpus_type=corpus_type,
+                        output_dir=Path("data/metadata")
+                    )
+                    if metadata:
+                        metadata_stats.append({
+                            "file_name": doc_path.name,
+                            "document_id": metadata.document_id,
+                            "party_1": metadata.party_1,
+                            "party_2": metadata.party_2,
+                            "contract_type": metadata.contract_type,
+                            "governing_law": metadata.governing_law,
+                            "clause_types_count": len(metadata.clause_types_present)
+                        })
+                except Exception as e:
+                    print(f"  → Error extracting metadata for {doc_path.name}: {str(e)}")
+            
+            print(f"\nMetadata extraction complete: {len(metadata_stats)}/{len(documents)} documents processed")
+        
+        # Phase 2: Process documents into chunks
+        print(f"\n{'='*60}")
+        print(f"Phase 2: Chunking documents for {corpus_type}")
+        print(f"{'='*60}")
+        
         all_chunks: List[Chunk] = []
         doc_stats = []
         
         for doc_path in documents:
             print(f"\nProcessing: {doc_path.name}")
             try:
+                # Load pre-extracted metadata from data/metadata/ during chunking
                 chunks = process_document_to_chunks(
                     doc_path,
-                    corpus_type=corpus_type
+                    corpus_type=corpus_type,
+                    load_existing_metadata=True,
+                    extract_metadata=False  # Don't extract on-the-fly, use pre-extracted
                 )
                 all_chunks.extend(chunks)
                 
@@ -253,7 +298,7 @@ class IngestionService:
             pickle.dump(index_data, f)
         print(f"  ✓ Saved index: {index_file}")
         
-        # Create summary
+        # Create summary with metadata statistics
         summary = {
             "corpus_type": corpus_type,
             "created_at": datetime.now().isoformat(),
@@ -262,13 +307,19 @@ class IngestionService:
             "embedding_model": EMBEDDING_MODEL_NAME,
             "embedding_dimension": embeddings.shape[1] if len(embeddings.shape) > 1 else 0,
             "index_directory": str(index_path),
+            "metadata_directory": str(Path("data/metadata") / corpus_type),
             "documents": doc_stats,
+            "metadata_extracted": extract_metadata_first,
             "config": {
                 "chunk_strategy": get_preprocessing_config(corpus_type).get("chunk_strategy"),
                 "chunk_size": get_preprocessing_config(corpus_type).get("chunk_size"),
                 "overlap": get_preprocessing_config(corpus_type).get("overlap")
             }
         }
+        
+        # Add metadata stats if available
+        if extract_metadata_first and 'metadata_stats' in locals():
+            summary["metadata_stats"] = metadata_stats
         
         # Save summary
         with open(summary_file, 'w') as f:
@@ -332,6 +383,11 @@ def main():
         action="store_true",
         help="Force rebuild of existing indexes"
     )
+    parser.add_argument(
+        "--skip-metadata",
+        action="store_true",
+        help="Skip metadata extraction step (use existing metadata only)"
+    )
     
     args = parser.parse_args()
     
@@ -342,22 +398,39 @@ def main():
     )
     
     # Process corpora
+    extract_metadata = not args.skip_metadata
+    
     if args.corpus == "all":
-        results = service.ingest_all_corpora(force_rebuild=args.force)
+        results = {}
+        for corpus_type in CORPUS_CATEGORIES:
+            result = service.process_corpus(
+                corpus_type, 
+                force_rebuild=args.force,
+                extract_metadata_first=extract_metadata
+            )
+            results[corpus_type] = result
+        
         print("\n" + "="*80)
         print("SUMMARY - All Corpora")
         print("="*80)
         for corpus_type, stats in results.items():
             if "error" not in stats:
-                print(f"{corpus_type}: {stats['num_documents']} docs, {stats['num_chunks']} chunks")
+                metadata_status = "✓ Metadata extracted" if stats.get('metadata_extracted') else "⊘ Metadata skipped"
+                print(f"{corpus_type}: {stats['num_documents']} docs, {stats['num_chunks']} chunks ({metadata_status})")
             else:
                 print(f"{corpus_type}: ERROR - {stats['error']}")
     else:
-        result = service.process_corpus(args.corpus, force_rebuild=args.force)
+        result = service.process_corpus(
+            args.corpus, 
+            force_rebuild=args.force,
+            extract_metadata_first=extract_metadata
+        )
         if "error" not in result:
+            metadata_status = "✓ Metadata extracted" if result.get('metadata_extracted') else "⊘ Metadata skipped"
             print(f"\nSuccessfully processed {args.corpus}:")
             print(f"  Documents: {result['num_documents']}")
             print(f"  Chunks: {result['num_chunks']}")
+            print(f"  Status: {metadata_status}")
         else:
             print(f"Error: {result['error']}")
 

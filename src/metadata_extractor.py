@@ -488,6 +488,102 @@ def save_metadata_to_file(metadata: ContractMetadata, output_dir: Path,
     return output_file
 
 
+def extract_and_save_metadata(file_path: Path, corpus_type: str, 
+                              output_dir: Path = None) -> Optional[ContractMetadata]:
+    """
+    Extract metadata from a document and save it to the metadata directory.
+    
+    Args:
+        file_path: Path to the document
+        corpus_type: Type of corpus (cuad, maud, contractnli)
+        output_dir: Base output directory for metadata. If None, uses data/metadata/
+    
+    Returns:
+        ContractMetadata object if successful, None otherwise
+    """
+    if output_dir is None:
+        output_dir = Path("data/metadata")
+    
+    # Create corpus-specific subdirectory
+    metadata_output_dir = output_dir / corpus_type
+    metadata_output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Read document
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            text = f.read()
+    except Exception as e:
+        print(f"Error reading {file_path}: {e}")
+        return None
+    
+    # Generate document ID
+    document_id = generate_document_id(file_path)
+    
+    # Extract metadata
+    try:
+        extractor = MetadataExtractor()
+        metadata = extractor.extract_metadata(
+            text=text,
+            file_path=file_path,
+            corpus_type=corpus_type,
+            document_id=document_id
+        )
+        
+        # Save metadata to file
+        output_file = save_metadata_to_file(
+            metadata=metadata,
+            output_dir=metadata_output_dir,
+            document_id=document_id,
+            format='json'
+        )
+        
+        print(f"  ✓ Extracted metadata for {file_path.name} → {output_file}")
+        return metadata
+        
+    except Exception as e:
+        print(f"  ✗ Error extracting metadata for {file_path.name}: {e}")
+        return None
+
+
+def load_metadata(document_id: str, corpus_type: str, 
+                  metadata_dir: Path = None) -> Optional[Dict[str, Any]]:
+    """
+    Load previously extracted metadata for a document.
+    
+    Args:
+        document_id: Document ID
+        corpus_type: Type of corpus
+        metadata_dir: Base metadata directory. If None, uses data/metadata/
+    
+    Returns:
+        Dictionary with metadata or None if not found
+    """
+    if metadata_dir is None:
+        metadata_dir = Path("data/metadata")
+    
+    metadata_file = metadata_dir / corpus_type / f"{document_id}_metadata.json"
+    
+    if not metadata_file.exists():
+        return None
+    
+    try:
+        with open(metadata_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading metadata from {metadata_file}: {e}")
+        return None
+
+
+def generate_document_id(file_path: Path) -> str:
+    """
+    Generate a unique document ID based on file path.
+    Uses MD5 hash of the absolute path for consistency.
+    """
+    import hashlib
+    path_str = str(file_path.absolute())
+    return hashlib.md5(path_str.encode()).hexdigest()[:16]
+
+
 if __name__ == "__main__":
     """Test the metadata extractor."""
     import argparse
@@ -496,7 +592,7 @@ if __name__ == "__main__":
     parser.add_argument('file_path', type=str, help='Path to test document')
     parser.add_argument('--corpus-type', type=str, default='cuad',
                        choices=['cuad', 'maud', 'contractnli'])
-    parser.add_argument('--output-dir', type=str, default='data/metadata_test')
+    parser.add_argument('--output-dir', type=str, default='data/metadata')
     
     args = parser.parse_args()
     
