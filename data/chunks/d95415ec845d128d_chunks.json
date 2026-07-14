@@ -1,0 +1,582 @@
+{
+  "document_id": "d95415ec845d128d",
+  "num_chunks": 32,
+  "chunks": [
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0000",
+      "text": "Confidentiality Agreement\nThis Confidentiality Agreement (the “Agreement”) has been prepared on behalf of bpost SA/NV, a limited liability company of public law, and the City of Brussels (the “Sellers”) with regard to the divestment of their respective sur",
+      "start_pos": 0,
+      "end_pos": 256,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0001",
+      "text": "t of their respective surface areas (the “Sale”) in the Munt Center/Centre Monnaie (the “Munt”).\nIn consideration of the Sellers agreeing to disclose confidential information (the “Confidential Information”) to the Candidate (“Disclosee”), the latter hereb",
+      "start_pos": 231,
+      "end_pos": 487,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0002",
+      "text": "losee”), the latter hereby undertakes to the Sellers that as Disclosee, they will keep confidential all and any Confidential Information received at any time.",
+      "start_pos": 462,
+      "end_pos": 621,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0003",
+      "text": "on received at any time. The Disclosee will procure that prior to the disclosure to any other person (including any professional advisor) of any Confidential Information, such other person is made aware of the provisions of this Agreement and the fact that",
+      "start_pos": 596,
+      "end_pos": 852,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0004",
+      "text": "reement and the fact that the Disclosee will be liable.\nThe Disclosee acknowledges that the Confidential Information, in as far as it relates to bpost SA/NV, could be price sensitive information and ensures compliance with the relevant legal and other prov",
+      "start_pos": 827,
+      "end_pos": 1083,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0005",
+      "text": "vant legal and other provisions in this respect (including, without being limited to, the provisions of the Belgian Law of 2 August 2002 on the supervision of the financial sector and on the financial services in relation to insider dealing and market mani",
+      "start_pos": 1058,
+      "end_pos": 1314,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0006",
+      "text": "r dealing and market manipulation). Confidential Information shall mean the following:\na) all such information, of any kind whatsoever (whether in oral, written or electronic form, and including, but not limited to, technical, commercial, financial, accoun",
+      "start_pos": 1289,
+      "end_pos": 1545,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0007",
+      "text": "ercial, financial, accounting, legal and administrative information) pertaining to the Sale of the Munt and the Sellers as may be provided to the Disclosee and their responsible managers, officers, employees, shareholders, members of the Board of Directors",
+      "start_pos": 1520,
+      "end_pos": 1776,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0008",
+      "text": "of the Board of Directors and advisors (including financial, legal and tax advisors and auditors) (“Representatives”), by the Sellers, their advisors or their representatives;\nb) all such analyses, compilations, forecasts, notes, memoranda and other docume",
+      "start_pos": 1751,
+      "end_pos": 2007,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0009",
+      "text": "emoranda and other documents as the Sellers or Deloitte Real Estate* and Laga** (the “Advisors”) may have prepared or caused to be prepared and which may contain, refer to or simply result from, the information mentioned in point (a) above;\nc) the fact tha",
+      "start_pos": 1982,
+      "end_pos": 2238,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0010",
+      "text": "a) above;\nc) the fact that the Disclosee (or any of their Representatives) are or have been involved in the analysis of, in meetings or negotiations related to the Sale, the contents, time and status of such negotiations, and generally any fact concerning",
+      "start_pos": 2213,
+      "end_pos": 2469,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0011",
+      "text": "ally any fact concerning the Sale.\nConfidential Information shall exclude:\na) information which had become available to the public prior to the date of disclosure thereof to the Disclosee or their Representatives, or that became available to the public aft",
+      "start_pos": 2444,
+      "end_pos": 2700,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0012",
+      "text": "ailable to the public after such date other than as a result of a breach of this Agreement by the Disclosee or their Representatives;\nb) information which was lawfully in the Disclosee’s possession or in the possession of one or more of their Representativ",
+      "start_pos": 2675,
+      "end_pos": 2931,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0013",
+      "text": "re of their Representatives prior to disclosure under this Agreement, in each case on a non-confidential basis, which, to their knowledge was free of any restriction as to its use or disclosure.",
+      "start_pos": 2906,
+      "end_pos": 3101,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0014",
+      "text": "o its use or disclosure.\nThe Disclosee acknowledges that they may not approach the representatives of the Sellers and cannot contact anybody else other than the contact persons from the Advisors.",
+      "start_pos": 3076,
+      "end_pos": 3272,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0015",
+      "text": "rsons from the Advisors.\nThe Disclosee further undertakes and acknowledges, that neither the representatives of the Sellers nor their Advisors give any warranty or make any representation as to the accuracy or completeness of any of the Confidential Inform",
+      "start_pos": 3247,
+      "end_pos": 3503,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0016",
+      "text": "f the Confidential Information or as to the reasonableness of any assumptions on which the information is based. The Disclosee agrees that the Sellers or Advisors shall not have any liability to the Disclosee or to any of their directors, employees, adviso",
+      "start_pos": 3478,
+      "end_pos": 3734,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0017",
+      "text": "ectors, employees, advisors or agents resulting from the use of Confidential Information.\nThis Agreement shall in no way constitute a commitment by any person to supply any Confidential Information or enter into any contract in connection with the Sellers.",
+      "start_pos": 3709,
+      "end_pos": 3965,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0018",
+      "text": "nection with the Sellers. The obligations of the Disclosee under this Agreement shall expire the earlier of (a) three years after the date of this Agreement, or (b) the date the Sale between the Candidate and the Sellers is completed.",
+      "start_pos": 3940,
+      "end_pos": 4175,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0019",
+      "text": "he Sellers is completed. The obligations of confidentiality and non-disclosure under this Agreement shall become effective as of the date of signing.",
+      "start_pos": 4150,
+      "end_pos": 4300,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0020",
+      "text": "of the date of signing.\nIn the event that the Disclosee or any of its Representatives becomes legally compelled to disclose any of the Confidential Information to a regulatory authority or to any other entity or third party, the Disclosee shall immediatel",
+      "start_pos": 4275,
+      "end_pos": 4531,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0021",
+      "text": "isclosee shall immediately notify the Sellers before disclosing such Confidential Information, so that the Sellers may seek a protective order or other appropriate remedy, without prejudice to the Disclosee’s remedies under this Agreement.",
+      "start_pos": 4506,
+      "end_pos": 4746,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0022",
+      "text": "es under this Agreement.\nIt is further understood and agreed that, without prejudice to any other rights or remedies which either party may have, any breach of these undertakings could cause the Sellers and/or its shareholders irreparable injury.",
+      "start_pos": 4721,
+      "end_pos": 4968,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0023",
+      "text": "ders irreparable injury. In the event of an actual or threatened breach by the Disclosee and/or its Representatives of any provisions of this Agreement, the Sellers shall be entitled (i) to seek injunctive relief in any court of competent jurisdiction rest",
+      "start_pos": 4943,
+      "end_pos": 5199,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0024",
+      "text": "mpetent jurisdiction restraining the Disclosee and/or its Representatives from breaching the terms hereof or from disclosing any Confidential Information to any person and (ii) specific performance and other equitable relief.",
+      "start_pos": 5174,
+      "end_pos": 5400,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0025",
+      "text": "other equitable relief.\nThis Agreement shall be governed by and construed in accordance with Belgian law and the Parties irrevocably agree to submit themselves to the exclusive jurisdiction of the Courts of Brussels.",
+      "start_pos": 5375,
+      "end_pos": 5593,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0026",
+      "text": "the Courts of Brussels. In accordance with the procedure defined in the candidacy file, we would be grateful if you could confirm your understanding and acceptance of the foregoing by returning to us a signed copy of the present document\nYours sincerely,",
+      "start_pos": 5568,
+      "end_pos": 5824,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0027",
+      "text": "ocument\nYours sincerely,\n_______________ _______________\nFrédéric Sohet Koen Van Gerven\nPartner CEO\nDeloitte Real Estate | Financial Advisory* bpost SA/NV\nThe Candidate / Disclosee\nName . . . . . . . . . . . . . . . . . . . . . . . . . . . .\nCompany . . .",
+      "start_pos": 5799,
+      "end_pos": 6055,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0028",
+      "text": ". . . . .\nCompany . . . . . . . . . . . . . . . . . . . . . . . . . . . .\nTitle . . . . . . . . . . . . . . . . . . . . . . . . . . . .\nDate . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+      "start_pos": 6030,
+      "end_pos": 6226,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0029",
+      "text": ". . . . . . . . . . . . .\nSignature\n*A department of Deloitte Consulting & Advisory CVBA\nCoöperatieve vennootschap met beperkte aansprakelijkheid/Société coopérative à responsabilité limitée\nRegistered Office: Gateway building, Luchthaven Nationaal 1 J, 1",
+      "start_pos": 6201,
+      "end_pos": 6457,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0030",
+      "text": "chthaven Nationaal 1 J, 1930 Zaventem\nVAT BE 0474.429.572 - RPR Brussel/RPM Bruxelles - IBAN BE 38 4377 5059 9172 - BIC KREDBEBB\nMember of Deloitte Touche Tohmatsu Limited\n© 2018.\n**Laga is a civil limited liability cooperative company.",
+      "start_pos": 6432,
+      "end_pos": 6669,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    },
+    {
+      "document_id": "d95415ec845d128d",
+      "chunk_id": "d95415ec845d128d_0031",
+      "text": "ity cooperative company.\nRegistered Office: Gateway building, Luchthaven Nationaal 1 J, 1930 Zaventem\n0471.858.874 - Brussels Trade Register - ING 310-1381442-54\nThe list of Laga partners can be obtained upon request or from the Laga website.",
+      "start_pos": 6644,
+      "end_pos": 6900,
+      "metadata": {
+        "file_name": "12032018_NDA_The%20Munt_EN.txt",
+        "file_path": "/workspace/data/corpus_lite/contractnli/12032018_NDA_The%20Munt_EN.txt",
+        "file_size": 6933,
+        "corpus_type": "contractnli",
+        "chunk_strategy": "clause_based"
+      },
+      "parent_chunk_id": null,
+      "child_chunk_ids": [],
+      "section_number": null,
+      "clause_type": null
+    }
+  ]
+}
