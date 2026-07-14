@@ -265,6 +265,25 @@ streamlit run src/chat_service/app.py
 python src/chat_service/chat_agent.py
 ```
 
+## Logging
+
+The chat service includes comprehensive logging:
+- Logs are written to both console and `/workspace/src/chat_service/chat_service.log`
+- Logs include:
+  - Query execution start/completion
+  - Retrieval timing and chunk counts
+  - Step-by-step execution for complex queries
+  - Error details with stack traces
+  - Missing chunk_id handling warnings
+
+## Performance Timing
+
+The system tracks timing for each processing stage:
+- **Simple Queries**: retrieval, synthesis, refinement, total
+- **Complex Queries**: per-step timing + synthesis, refinement, total
+- Timing is displayed in the Streamlit UI "Performance Timing" tab
+- Shows percentage breakdown of time spent in each step
+
 ## Dependencies
 
 Required packages (add to requirements.txt):
